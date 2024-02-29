@@ -151,8 +151,8 @@ in
     "$mainMod, L, exec, ${pkgs.systemd}/bin/loginctl lock-session"
 
     # Print screen
-    "$mainMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m window"
-    ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region"
+    #"$mainMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m window"
+    #", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region"
 
     # Move focus with mainMod + arrow keys
     "$mainMod, left, movefocus, l"
