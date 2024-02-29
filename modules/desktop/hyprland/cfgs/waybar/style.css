@@ -1,7 +1,7 @@
 * {
   border: none;
   /* border-radius: 0; */
-  font-family: "Noto Sans Nerd Font";
+  font-family: "NotoSans Nerd Font";
   font-size: 13px;
   min-height: 0;
   color: @theme_text_color;

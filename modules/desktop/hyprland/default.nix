@@ -32,7 +32,7 @@ in
         home.packages = with pkgs; [
           cliphist
           hyprpicker
-          hyprshot
+          #hyprshot
         ];
 
         wayland.windowManager.hyprland = {
@@ -137,8 +137,8 @@ in
             name = "BeautyLine";
           };
           font = {
-            package = pkgs.noto-fonts;
-            name = "Noto Sans";
+            package = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+            name = "NotoSans Nerd Font";
             size = 10;
           };
           gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
