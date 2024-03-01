@@ -11,9 +11,9 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (prismlauncher.override {
+      (unstable.prismlauncher.override {
         jdks = [ jdk8 jdk17 jdk21 ];
-        #withWaylandGLFW = true;
+        withWaylandGLFW = true;
       })
       lunar-client
     ];
