@@ -42,6 +42,7 @@
       bitwarden
       # Office
       libreoffice
+      logseq
       # Media
       vlc
       # Communication
@@ -67,7 +68,7 @@
       inkscape-with-extensions
       krita
       libsForQt5.kdenlive
-      #blender
+      blender
       # Communication
       signal-desktop
       # Audio
