@@ -13,7 +13,6 @@ in
     programs.steam.enable = true;
     
     programs.gamemode.enable = true;
-    powerManagement.cpuFreqGovernor = "ondemand";
 
     environment.systemPackages = with pkgs; [
       protonup-qt
