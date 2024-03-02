@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (unstable.prismlauncher.override {
+      (prismlauncher.override {
         jdks = [ jdk8 jdk17 jdk21 ];
         withWaylandGLFW = true;
       })
