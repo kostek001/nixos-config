@@ -2,7 +2,7 @@
 
 {
   kostek001.boot.plymouth.enable = true;
-  kostek001.desktop.hyprland.enable = true;
+  # kostek001.desktop.hyprland.enable = true;
   kostek001.desktop.plasma.enable = true;
   kostek001.misc.zsh.enable = true;
 
@@ -69,4 +69,9 @@
   imports = [
     ./pkgs.nix
   ];
+
+  # Logon
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  #services.xserver.displayManager.defaultSession = "hyprland";
 }

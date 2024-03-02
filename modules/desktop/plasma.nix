@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.desktopManager.plasma5.enable = true;
+    services.xserver.desktopManager.plasma6.enable = true;
 
     environment.systemPackages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum
@@ -18,5 +18,12 @@ in
     ];
 
     programs.dconf.enable = true;
+
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+    };
   };
 }
