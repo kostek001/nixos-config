@@ -36,7 +36,7 @@
       # Editor
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
-        nixd
+        #nixd
       ]))
       # Network
       bitwarden
