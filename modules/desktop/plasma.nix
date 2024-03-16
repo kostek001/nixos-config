@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.desktopManager.plasma6.enable = true;
+    services.desktopManager.plasma6.enable = true;
 
     environment.systemPackages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum
@@ -19,7 +19,12 @@ in
 
     programs.dconf.enable = true;
 
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      SDL_VIDEODRIVER = "wayland,x11";
+      # XWAYLAND_NO_GLAMOR = "1";
+    };
 
     xdg.portal = {
       enable = true;
