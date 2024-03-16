@@ -5,6 +5,7 @@
     boot/plymouth.nix
     boot/loader/lanzaboote.nix
     desktop/hyprland
+    desktop/gnome.nix
     desktop/plasma.nix
     games/minecraft.nix
     games/steam.nix
