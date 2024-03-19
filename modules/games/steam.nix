@@ -11,13 +11,14 @@ in
 
   config = mkIf cfg.enable {
     programs.steam.enable = true;
+    hardware.steam-hardware.enable = true;
     
     programs.gamemode.enable = true;
 
     environment.systemPackages = with pkgs; [
       protonup-qt
       (callPackage (import ../../pkgs/games/steamtinkerlaunch.nix) { })
-      #vim
+      depotdownloader
     ];
   };
 }
