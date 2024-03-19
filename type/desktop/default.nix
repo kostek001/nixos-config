@@ -3,7 +3,7 @@
 {
   kostek001.boot.plymouth.enable = true;
   # kostek001.desktop.hyprland.enable = true;
-  kostek001.desktop.gnome.enable = true;
+  #kostek001.desktop.gnome.enable = true;
   kostek001.desktop.plasma.enable = true;
   kostek001.misc.zsh.enable = true;
 

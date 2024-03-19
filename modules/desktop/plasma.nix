@@ -21,8 +21,8 @@ in
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORM = "wayland;xcb";
-      SDL_VIDEODRIVER = "wayland,x11";
+      # QT_QPA_PLATFORM = "wayland;xcb";
+      # SDL_VIDEODRIVER = "wayland,x11";
       # XWAYLAND_NO_GLAMOR = "1";
     };
 
@@ -30,5 +30,7 @@ in
       enable = true;
       xdgOpenUsePortal = true;
     };
+
+    #programs.ssh.askPassword = "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
   };
 }
