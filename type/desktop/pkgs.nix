@@ -18,6 +18,9 @@
       # Thumbnails
       libsForQt5.kdegraphics-thumbnailers
       ghostscript
+
+      # Backups
+      kup
     ] ++ [
       ## FRAMEWORKS
       python3
