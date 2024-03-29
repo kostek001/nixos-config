@@ -18,9 +18,9 @@
       # Thumbnails
       libsForQt5.kdegraphics-thumbnailers
       ghostscript
-
-      # Backups
-      kup
+      qt6.qtimageformats
+      kdePackages.kcolorchooser
+      kdePackages.kcolorpicker
     ] ++ [
       ## FRAMEWORKS
       python3
