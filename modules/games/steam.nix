@@ -18,7 +18,6 @@ in
     environment.systemPackages = with pkgs; [
       protonup-qt
       (callPackage (import ../../pkgs/games/steamtinkerlaunch.nix) { })
-      depotdownloader
     ];
   };
 }
