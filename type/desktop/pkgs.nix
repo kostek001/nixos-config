@@ -20,7 +20,6 @@
       ghostscript
       qt6.qtimageformats
       kdePackages.kcolorchooser
-      kdePackages.kcolorpicker
     ] ++ [
       ## FRAMEWORKS
       python3
