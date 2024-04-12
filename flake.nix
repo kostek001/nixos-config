@@ -28,7 +28,6 @@
         defaultModules = [
           ./modules
           ./global-config.nix
-          ./overlays
         ];
       in
       {
