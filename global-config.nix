@@ -7,7 +7,7 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      cores = 8;
+      cores = 4;
     };
     gc = {
       automatic = true;

@@ -65,7 +65,7 @@
       # Network
       nextcloud-client
       qbittorrent
-      #rustdesk
+      rustdesk-flutter
       moonlight-qt
       # Art
       gimp

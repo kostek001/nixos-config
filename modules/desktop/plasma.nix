@@ -13,8 +13,8 @@ in
     services.desktopManager.plasma6.enable = true;
 
     environment.systemPackages = with pkgs; [
-      libsForQt5.qtstyleplugin-kvantum
-      libsForQt5.plasma-browser-integration
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.kde-gtk-config
     ];
 
     programs.dconf.enable = true;
