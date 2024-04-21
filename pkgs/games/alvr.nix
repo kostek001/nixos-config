@@ -1,28 +1,35 @@
-{ appimageTools, fetchurl }:
-let
-  name = "alvr";
-  version = "20.6.1";
-  sha256 = "218c370f5f315065a216eef873877c778b68859ced003ea6999098b0337147e0";
+{ lib, fetchFromGitHub, rustPlatform, pkgs }:
 
-  src = fetchurl {
-    url = "https://github.com/alvr-org/ALVR/releases/download/v${version}/ALVR-x86_64.AppImage";
-    inherit sha256;
+rustPlatform.buildRustPackage rec {
+  pname = "alvr";
+  version = "20.7.1";
+
+  src = fetchFromGitHub {
+    owner = "alvr-org";
+    repo = pname;
+    rev = "v${version}";
+    hash = "sha256-znIRSax4thuBIpxW8BNqJSUYgIeY8g06qA9P/i8awvQ=";
   };
 
-  appimageContents = appimageTools.extract {
-    inherit name version src;
+  cargoLock = {
+    lockFile = "${src}/Cargo.lock";
+    allowBuiltinFetchGit = true;
   };
-in
-appimageTools.wrapType2 {
-  inherit name version src;
 
-  extraPkgs = pkgs: with pkgs; [ pulseaudio ];
+  # cargoHash = lib.fakeHash;
+  # cargoDepsName = pname;
 
-  extraInstallCommands = ''
-    install -m 444 -D ${appimageContents}/alvr.desktop $out/share/applications/alvr.desktop
-    install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/256x256/apps/alvr.png \
-      $out/share/icons/hicolor/256x256/apps/alvr.png
-    substituteInPlace $out/share/applications/alvr.desktop \
-      --replace 'Exec=alvr_dashboard' 'Exec=${name}'
-  '';
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+
+  buildInputs = with pkgs; [
+    libjack2
+    alsa-lib
+  ];
+
+  meta = with lib; {
+    description = "ALVR";
+    homepage = "https://github.com/alvr-org/ALVR";
+    license = licenses.mit;
+    maintainers = [];
+  };
 }

@@ -13,7 +13,8 @@ in
     ({
       ## ALVR
       environment.systemPackages = with pkgs; [
-        (callPackage (import ../../pkgs/games/alvr.nix) { })
+        #(callPackage (import ../../pkgs/games/alvr.nix) { })
+        (callPackage (import ../../pkgs/games/slimevr.nix) { })
         pulseaudio
       ];
 
