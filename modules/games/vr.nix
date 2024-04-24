@@ -17,7 +17,6 @@ in
         (callPackage (import ../../pkgs/games/slimevr.nix) { })
         pulseaudio
       ];
-      services.flatpak.enable = true;
 
       # services.udev = (
       #   let
