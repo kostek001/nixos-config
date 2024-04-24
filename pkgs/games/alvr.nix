@@ -1,35 +1,25 @@
-{ lib, fetchFromGitHub, rustPlatform, pkgs }:
-
-rustPlatform.buildRustPackage rec {
-  pname = "alvr";
+{ buildFHSEnv, fetchzip }:
+let
+  name = "alvr";
   version = "20.7.1";
 
-  src = fetchFromGitHub {
-    owner = "alvr-org";
-    repo = pname;
-    rev = "v${version}";
-    hash = "sha256-znIRSax4thuBIpxW8BNqJSUYgIeY8g06qA9P/i8awvQ=";
+  src = fetchzip {
+    url = "https://github.com/alvr-org/ALVR/releases/download/v${version}/alvr_streamer_linux.tar.gz";
+    hash = "sha256-XlTUgk+Cmt8jLsQOG0WLPv+COYUCimvADa6sJ1AIncY=";
   };
+in
+buildFHSEnv {
+  inherit name;
 
-  cargoLock = {
-    lockFile = "${src}/Cargo.lock";
-    allowBuiltinFetchGit = true;
-  };
-
-  # cargoHash = lib.fakeHash;
-  # cargoDepsName = pname;
-
-  nativeBuildInputs = with pkgs; [ pkg-config ];
-
-  buildInputs = with pkgs; [
-    libjack2
+  targetPkgs = pkgs: (with pkgs; [
+    ffmpeg
+    libva
     alsa-lib
-  ];
+    egl-wayland
+    libxkbcommon
+    libGL
+    wayland
+  ]);
 
-  meta = with lib; {
-    description = "ALVR";
-    homepage = "https://github.com/alvr-org/ALVR";
-    license = licenses.mit;
-    maintainers = [];
-  };
+  runScript = "${src}/bin/alvr_dashboard";
 }
