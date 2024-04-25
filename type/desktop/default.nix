@@ -41,18 +41,18 @@
         "steam -silent"
       ];
 
-      programs.kitty = {
-        enable = true;
-        font = {
-          package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
-          name = "FiraCode Nerd Font";
-        };
-        settings = {
-          confirm_os_window_close = 0;
-          background_opacity = "0.6";
-          background_blur = 1;
-        };
-      };
+      # programs.kitty = {
+      #   enable = true;
+      #   font = {
+      #     package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+      #     name = "FiraCode Nerd Font";
+      #   };
+      #   settings = {
+      #     confirm_os_window_close = 0;
+      #     background_opacity = "0.6";
+      #     background_blur = 1;
+      #   };
+      # };
     };
   };
 
