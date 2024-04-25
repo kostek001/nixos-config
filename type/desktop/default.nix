@@ -3,7 +3,7 @@
 {
   kostek001.boot.plymouth.enable = true;
   # kostek001.desktop.hyprland.enable = true;
-  #kostek001.desktop.gnome.enable = true;
+  # kostek001.desktop.gnome.enable = true;
   kostek001.desktop.plasma.enable = true;
   kostek001.misc.zsh.enable = true;
 
@@ -62,7 +62,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" "Noto" ]; })
   ];
 
-  services.xserver.displayManager.autoLogin = {
+  services.displayManager.autoLogin = {
     enable = true;
     user = username;
   };
@@ -72,7 +72,7 @@
   ];
 
   # Logon
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   #services.xserver.displayManager.defaultSession = "hyprland";
 }
