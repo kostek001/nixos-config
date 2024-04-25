@@ -18,8 +18,6 @@ in
     environment.shellAliases = {
       ls = "eza";
       ll = "eza -la";
-      # cat = "bat";
-      htop = "btop";
     };
   };
 }
