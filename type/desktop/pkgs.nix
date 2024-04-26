@@ -36,7 +36,7 @@
 
       ## GRAPHICAL
       # Web browser
-      brave
+      master.brave
       # Editor
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
