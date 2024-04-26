@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,14 +54,15 @@
               {
                 environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
               }
-              # UNSTABLE Overlay
-              # ({ config, ... }: {
-              #   nixpkgs.overlays = [
-              #     (final: prev: {
-              #       unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
-              #     })
-              #   ];
-              # })
+              
+              # MASTER Overlay
+              ({ ... }: {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    master = nixpkgs-master.legacyPackages.x86_64-linux;
+                  })
+                ];
+              })
             ] ++ defaultModules;
           };
       };
