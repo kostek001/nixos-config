@@ -51,18 +51,14 @@
 
               home-manager.nixosModules.home-manager
 
-              {
-                environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-              }
-              
               # MASTER Overlay
-              ({ ... }: {
+              {
                 nixpkgs.overlays = [
                   (final: prev: {
                     master = nixpkgs-master.legacyPackages.x86_64-linux;
                   })
                 ];
-              })
+              }
             ] ++ defaultModules;
           };
       };

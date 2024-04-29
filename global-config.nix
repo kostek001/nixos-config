@@ -1,4 +1,4 @@
-{ config, pkgs, username, fullname, hostname, ... }:
+{ pkgs, username, fullname, hostname, inputs, ... }:
 
 {
   system.stateVersion = "23.11";
@@ -92,12 +92,7 @@
     usbutils
     file
     neofetch
-    # Build essentials
-    # gnumake
-    # gcc
-    # gdb
-    # ncurses
-  ];
+  ] ++ [ inputs.agenix.packages.${system}.default ];
 
   kostek001.programs.shell-utils.enable = true;
 }
