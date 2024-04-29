@@ -12,17 +12,21 @@ in
   config = mkIf cfg.enable {
     services.desktopManager.plasma6.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      kdePackages.qtstyleplugin-kvantum
-      kdePackages.kde-gtk-config
-    ];
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [ kate ];
 
     programs.dconf.enable = true;
 
+    environment.systemPackages = with pkgs; [
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.partitionmanager
+    ];
+
+    programs.kdeconnect.enable = true;
+
+
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      # QT_QPA_PLATFORM = "wayland;xcb";
-      # SDL_VIDEODRIVER = "wayland,x11";
+      # Fix for Xwayland Nvidia, breaks games
       # XWAYLAND_NO_GLAMOR = "1";
     };
 
@@ -31,6 +35,7 @@ in
       xdgOpenUsePortal = true;
     };
 
-    #programs.ssh.askPassword = "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+    # For KDE + GNOME
+    # programs.ssh.askPassword = "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
   };
 }
