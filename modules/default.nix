@@ -7,9 +7,7 @@
     desktop/hyprland
     desktop/gnome.nix
     desktop/plasma.nix
-    games/minecraft.nix
     games/steam.nix
-    games/vr.nix
     hardware/adb.nix
     hardware/hid.nix
     hardware/nvidia.nix
