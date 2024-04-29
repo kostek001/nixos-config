@@ -2,24 +2,12 @@
 
 {
   virtualisation.vmware.host.enable = true;
-  programs.partition-manager.enable = true;
-  programs.kdeconnect.enable = true;
   programs.noisetorch.enable = true;
   kostek001.programs.obs.enable = true;
 
   home-manager.users.${username} = { ... }: {
     home.packages = with pkgs; [
-      ## KDE
-      libsForQt5.filelight
-      libsForQt5.kcalc
-      # Network mounting
-      kio-fuse
-      libsForQt5.kio-extras
       # Thumbnails
-      libsForQt5.kdegraphics-thumbnailers
-      ghostscript
-      qt6.qtimageformats
-      kdePackages.kcolorchooser
       p7zip
       unar
     ] ++ [
@@ -30,9 +18,6 @@
       ## TERMINAL
       cava
       appimage-run
-      # Other
-      pulsemixer
-      bluetuith
 
       ## GRAPHICAL
       # Web browser
@@ -46,7 +31,6 @@
       bitwarden
       # Office
       libreoffice
-      logseq
       # Media
       vlc
       # Communication
@@ -66,7 +50,8 @@
       nextcloud-client
       qbittorrent
       rustdesk-flutter
-      moonlight-qt
+      veracrypt
+      virt-manager
       # Art
       gimp
       inkscape-with-extensions
@@ -91,7 +76,6 @@
       # Communication
       signal-desktop
       # Audio
-      helvum
       qpwgraph
       audacity
       # Containerization
