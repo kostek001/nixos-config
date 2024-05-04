@@ -92,6 +92,7 @@
     usbutils
     file
     neofetch
+    fastfetch
   ] ++ [ inputs.agenix.packages.${system}.default ];
 
   kostek001.programs.shell-utils.enable = true;
