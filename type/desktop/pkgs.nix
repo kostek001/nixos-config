@@ -1,7 +1,6 @@
 { pkgs, username, ... }:
 
 {
-  virtualisation.vmware.host.enable = true;
   programs.noisetorch.enable = true;
   kostek001.programs.obs.enable = true;
 

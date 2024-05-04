@@ -35,6 +35,11 @@
     user = username;
   };
 
+  virtualisation.libvirtd.enable = true;
+  users.users.${username}.extraGroups = [ "libvirtd" ];
+
+  services.logind.extraConfig = "RuntimeDirectorySize=40%";
+
   imports = [
     ./pkgs.nix
     ./firewall.nix
