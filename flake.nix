@@ -18,6 +18,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plasma-smart-video-wallpaper-reborn = {
+      url = "github:kostek001/plasma-smart-video-wallpaper-reborn";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, ... } @ inputs: with inputs; {

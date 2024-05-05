@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 with lib;
 
 let
@@ -19,6 +19,8 @@ in
     environment.systemPackages = with pkgs; [
       kdePackages.qtstyleplugin-kvantum
       kdePackages.partitionmanager
+      inputs.plasma-smart-video-wallpaper-reborn.packages.${system}.default
+      qt6.qtmultimedia
     ];
 
     programs.kdeconnect.enable = true;
