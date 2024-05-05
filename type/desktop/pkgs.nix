@@ -84,7 +84,7 @@
       rpi-imager
       # Other
       galaxy-buds-client
-      (callPackage (import ../../pkgs/ytermusic) { })
+      (callPackage (import ../../pkgs/programs/ytermusic) { })
     ];
   };
 }
