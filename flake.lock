@@ -285,11 +285,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714861600,
-        "narHash": "sha256-Q47rxeEDdCn7oqo8YaEaGznaCdXwU2maojtr7KFfAng=",
+        "lastModified": 1714869986,
+        "narHash": "sha256-SN92rGVDHp0stqyyruuAf6p+FS5KvnZ1fukyVdhEAR4=",
         "owner": "kostek001",
         "repo": "plasma-smart-video-wallpaper-reborn",
-        "rev": "08e0ddfd7653149fef9e1aa758617fb5458555a6",
+        "rev": "648e6c8f3e21599215cdf53f6097c29e9735c80f",
         "type": "github"
       },
       "original": {

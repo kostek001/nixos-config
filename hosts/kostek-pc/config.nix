@@ -12,6 +12,9 @@
   kostek001.boot.loader.lanzaboote.enable = true;
 
   kostek001.hardware.nvidia.enable = true;
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "vdpau";
+  };
 
   powerManagement.cpuFreqGovernor = null;
 
