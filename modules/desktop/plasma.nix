@@ -24,6 +24,7 @@ in
       qt6.qtmultimedia
 
       (callPackage (import ../../pkgs/programs/wallpaper-engine-kde-plugin) { })
+      qt6.qtwebsockets
     ];
 
     programs.kdeconnect.enable = true;

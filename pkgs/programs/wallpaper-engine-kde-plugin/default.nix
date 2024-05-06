@@ -1,13 +1,26 @@
-{ stdenv, fetchFromGitHub, lib, cmake, qt6, kdePackages, pkgs, pkg-config }:
+{ stdenv
+, fetchFromGitHub
+, cmake
+, qt6
+, kdePackages
+, pkg-config
+, vulkan-headers
+, mpv
+, libass
+, lz4
+, fribidi
+, python3
+}:
 
 let
   wallpaper-scene-renderer = fetchFromGitHub {
     owner = "catsout";
     repo = "wallpaper-scene-renderer";
     rev = "eeaff7036526c87cb7dd46c849a5e9bd8e26e5f7";
-    hash = "sha256-Bo7Q+UKD5iTzfYyuXd5hc+8jCmsCoQXBSLTCdWNU7Zc=";
+    hash = "sha256-qE9K//tNRdFKEHV7liQemERta45cgd/jc5CNkAI6e5c=";
     fetchSubmodules = true;
   };
+  pythonPath = python3.withPackages (p: [ p.websockets ]);
 in
 stdenv.mkDerivation rec {
   pname = "wallpaper-engine-kde-plugin";
@@ -17,8 +30,7 @@ stdenv.mkDerivation rec {
     owner = "catsout";
     repo = pname;
     rev = version;
-    hash = "sha256-vkWEGlDQpfJ3fAimJHZs+aX6dh/fLHSRy2tLEsgu/JU=";
-    fetchSubmodules = true;
+    hash = "sha256-KDNL6PNGSkpA+Zq0jzBoodJcbskAKR2onY+kYjgzEG8=";
   };
 
   patches = [ ./cmake.patch ];
@@ -34,21 +46,18 @@ stdenv.mkDerivation rec {
     pkg-config
   ];
 
-  # postPatch = ''
-  #   rm -r src/backend_scene
-  #   ln -s ${wallpaper-scene-renderer} src/backend_scene
-  # '';
+  postPatch = ''
+    rm -r src/backend_scene
+    ln -s ${wallpaper-scene-renderer} src/backend_scene
+  '';
 
-  propagatedBuildInputs = with pkgs; [
+  propagatedBuildInputs = [
     qt6.qtbase
     qt6.qtdeclarative
     qt6.qtwebsockets
     qt6.qtwebchannel
 
-    vulkan-headers
-    (pkgs.python3.withPackages (p: with p; [
-      websockets
-    ]))
+    vulkan-headers    
     mpv
     libass
     lz4
@@ -62,4 +71,10 @@ stdenv.mkDerivation rec {
     kcoreaddons
   ]);
   strictDeps = true;
+
+  postInstall = ''
+    substituteInPlace $out/share/plasma/wallpapers/com.github.catsout.wallpaperEngineKde/contents/ui/Pyext.qml \
+      --replace "/usr/share" "$out/share" \
+      --replace "python3" "${pythonPath}/bin/python3"
+  '';
 }
