@@ -22,6 +22,8 @@ in
       
       inputs.plasma-smart-video-wallpaper-reborn.packages.${system}.default
       qt6.qtmultimedia
+
+      (callPackage (import ../../pkgs/programs/wallpaper-engine-kde-plugin) { })
     ];
 
     programs.kdeconnect.enable = true;
