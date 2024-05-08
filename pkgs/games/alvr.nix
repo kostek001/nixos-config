@@ -1,11 +1,11 @@
 { buildFHSEnv, fetchzip, writeText, fetchurl }:
 let
   name = "alvr";
-  version = "20.7.1";
+  version = "20.8.1";
 
   src = fetchzip {
     url = "https://github.com/alvr-org/ALVR/releases/download/v${version}/alvr_streamer_linux.tar.gz";
-    hash = "sha256-XlTUgk+Cmt8jLsQOG0WLPv+COYUCimvADa6sJ1AIncY=";
+    hash = "sha256-8bQpEnzK4ZGE5P49Gh/fmxgyCBFTzD511q6aZxe0B/Y=";
   };
 
   desktopFile = writeText "alvr.desktop" ''
