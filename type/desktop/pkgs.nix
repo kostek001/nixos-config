@@ -85,6 +85,7 @@
       # Other
       galaxy-buds-client
       (callPackage (import ../../pkgs/programs/ytermusic) { })
+      youtube-music
     ];
   };
 }
