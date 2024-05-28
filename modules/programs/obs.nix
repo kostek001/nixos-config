@@ -13,9 +13,16 @@ in
     home-manager.users.${username} = { ... }: {
       programs.obs-studio = {
         enable = true;
-        plugins = with pkgs; [
-          obs-studio-plugins.droidcam-obs
-        ];
+        plugins = (with pkgs.obs-studio-plugins; [
+          droidcam-obs
+          waveform
+          obs-tuna
+          obs-vkcapture
+          obs-move-transition
+          obs-backgroundremoval
+          advanced-scene-switcher
+          obs-pipewire-audio-capture
+        ]);
       };
     };
 
