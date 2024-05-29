@@ -10,17 +10,13 @@
       p7zip
       unar
     ] ++ [
-      ## FRAMEWORKS
-      python3
-      python311Packages.pip
-
       ## TERMINAL
       cava
       appimage-run
 
       ## GRAPHICAL
       # Web browser
-      master.brave
+      brave
       # Editor
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
@@ -84,7 +80,7 @@
       rpi-imager
       # Other
       galaxy-buds-client
-      (callPackage (import ../../pkgs/programs/ytermusic) { })
+      #(callPackage (import ../../pkgs/programs/ytermusic) { })
       youtube-music
     ];
   };
