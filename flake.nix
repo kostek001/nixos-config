@@ -59,6 +59,7 @@
               # MASTER Overlay
               {
                 nixpkgs.overlays = [
+                  (import ./pkgs)
                   (final: prev: {
                     master = nixpkgs-master.legacyPackages.x86_64-linux;
                   })
