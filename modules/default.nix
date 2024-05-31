@@ -10,7 +10,7 @@
     games/steam.nix
     hardware/adb.nix
     hardware/hid.nix
-    hardware/nvidia.nix
+    hardware/nvidia
     hardware/opentabletdriver.nix
     hardware/platformio.nix
     hardware/sound.nix

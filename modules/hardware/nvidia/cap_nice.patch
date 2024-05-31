@@ -1,0 +1,14 @@
+diff --git a/kernel-open/nvidia/os-interface.c b/kernel-open/nvidia/os-interface.c
+index 5f363698..2cca7583 100644
+--- a/kernel/nvidia/os-interface.c
++++ b/kernel/nvidia/os-interface.c
+@@ -372,7 +372,8 @@ NvBool NV_API_CALL os_is_administrator(void)
+ 
+ NvBool NV_API_CALL os_allow_priority_override(void)
+ {
+-    return capable(CAP_SYS_NICE);
++    //return capable(CAP_SYS_NICE);
++    return true; // ALLOW ANY
+ }
+ 
+ char* NV_API_CALL os_string_copy(
