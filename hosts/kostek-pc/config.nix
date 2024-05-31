@@ -20,6 +20,9 @@
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
+  # Disable password timeout
+  boot.kernelParams = [ "rootflags=x-systemd.device-timeout=0" ];
+
   # Enable swap on luks
   boot.initrd.luks.devices."luks-318904c2-e121-4f98-9ea3-591e009f9f63".device = "/dev/disk/by-uuid/318904c2-e121-4f98-9ea3-591e009f9f63";
 
