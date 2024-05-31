@@ -36,10 +36,7 @@ in
       #open = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      #package = config.boot.kernelPackages.nvidiaPackages.stable;
-      package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs (oldAttrs: {
-        patches = oldAttrs.patches ++ [ ./cap_nice.patch ];
-      });
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 }
