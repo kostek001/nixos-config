@@ -40,6 +40,11 @@
 
   services.logind.extraConfig = "RuntimeDirectorySize=40%";
 
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
+
   imports = [
     ./pkgs.nix
     ./firewall.nix
