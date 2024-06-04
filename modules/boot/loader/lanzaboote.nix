@@ -31,8 +31,9 @@ in
       };
       systemd-boot = {
         enable = false;
-        configurationLimit = 10;
         editor = false;
+        configurationLimit = 5;
+        consoleMode = "auto";
       };
     };
   };
