@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = { self, ... } @ inputs: with inputs; {
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations =
       let
         fullname = "Kostek";
@@ -34,6 +34,8 @@
         defaultModules = [
           ./modules
           ./global-config.nix
+          ./overlays.nix
+          inputs.home-manager.nixosModules.home-manager
         ];
       in
       {
@@ -53,18 +55,6 @@
             modules = [
               ./hosts/kostek-pc/config.nix
               ./type/desktop
-
-              home-manager.nixosModules.home-manager
-
-              # MASTER Overlay
-              {
-                nixpkgs.overlays = [
-                  (import ./pkgs)
-                  (final: prev: {
-                    master = nixpkgs-master.legacyPackages.x86_64-linux;
-                  })
-                ];
-              }
             ] ++ defaultModules;
           };
       };
