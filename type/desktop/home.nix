@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.11";
@@ -15,4 +15,6 @@
 
   kostek001.games.minecraft.enable = true;
   kostek001.games.vr.enable = true;
+
+  services.arrpc.enable = true;
 }

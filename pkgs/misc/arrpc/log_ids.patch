@@ -1,0 +1,13 @@
+diff --git a/src/process/index.js b/src/process/index.js
+index 97ea651..937a5d4 100644
+--- a/src/process/index.js
++++ b/src/process/index.js
+@@ -60,7 +60,7 @@ export default class ProcessServer {
+ 
+           ids.push(id);
+           if (!timestamps[id]) {
+-            log('detected game!', name);
++            log('detected game!', name, id);
+             timestamps[id] = Date.now();
+           }
+ 
