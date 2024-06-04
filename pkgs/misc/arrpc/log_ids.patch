@@ -11,3 +11,16 @@ index 97ea651..937a5d4 100644
              timestamps[id] = Date.now();
            }
  
+diff --git a/src/transports/ipc.js b/src/transports/ipc.js
+index 91d1eb2..550da10 100644
+--- a/src/transports/ipc.js
++++ b/src/transports/ipc.js
+@@ -219,6 +219,8 @@ export default class IPCServer {
+ 
+         socket.close(ErrorCodes.INVALID_CLIENTID);
+         return;
++      } else {
++        log('connection', clientId)
+       }
+ 
+       socket.on('error', e => {
