@@ -20,21 +20,25 @@ in
       sidequest
     ];
 
-    # services.udev = (
-    #   let
-    #     script = pkgs.writeScriptBin "alvr-adb-forward" ''
-    #       #!/bin/sh
-    #       ${pkgs.android-tools}/bin/adb start-server
-    #       ${pkgs.android-tools}/bin/adb forward tcp:9943 tcp:9943
-    #       ${pkgs.android-tools}/bin/adb forward tcp:9944 tcp:9944
-    #     '';
-    #   in
-    #   {
-    #     enable = true;
-    #     extraRules = ''
-    #       ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="2833", ATTRS{idProduct}=="0183", RUN+="${pkgs.su}/bin/su kostek -c '${script}/bin/alvr-adb-forward > /tmp/ll.txt'"
-    #     '';
-    #   }
-    # );
+
+    systemd.user.services.vr-adb-auto-forward =
+      let
+        adb-auto-forward = pkgs.callPackage ../../pkgs/misc/adb-auto-forward.nix { };
+      in
+      {
+        Unit = {
+          Description = "ADB Auto Forward";
+        };
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+        Service = {
+          # This is needed, otherwise no logs
+          ExecStart = pkgs.writeShellScript "vr-adb-auto-forward" ''
+            PYTHONUNBUFFERED=1 exec ${adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944
+          '';
+        };
+      };
+
   };
 }
