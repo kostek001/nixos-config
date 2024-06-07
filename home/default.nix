@@ -2,6 +2,7 @@
 
 {
   imports = [
+    desktop/plasma
     games/minecraft.nix
     games/vr.nix
     programs/dunst.nix

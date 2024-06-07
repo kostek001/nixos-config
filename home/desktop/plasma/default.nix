@@ -4,10 +4,6 @@ let
   cfg = config.kostek001.desktop.plasma;
 in
 {
-  imports = [
-    <plasma-manager/modules>
-  ];
-
   options.kostek001.desktop.plasma = {
     enable = lib.mkEnableOption "Plasma";
   };
@@ -18,6 +14,14 @@ in
 
       shortcuts = {
         "services/org.kde.konsole.desktop"."_launch" = "Meta+T";
+      };
+
+      configFile = {
+        kscreenlockerrc = {
+          "Daemon"."Timeout" = 5;
+          "Greeter/Wallpaper/org.kde.image/General"."Image" = builtins.toString ../../../resources/background-3.gif;
+          "Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = builtins.toString ../../../resources/background-3.gif;
+        };
       };
     };
   };
