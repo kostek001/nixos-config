@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     owner = "kostek001";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-KNi1mKA7ywskVLVbyMHjrPbcxoIbCnbguP+HnjhQ/Cg=";
+    hash = "sha256-JFZmCssyIYGl5BHVCh8yTtbpH68QG2+FqfBA6fH+uUU=";
   };
 
   dependencies = with python3Packages; [
