@@ -2,8 +2,6 @@
 
 {
   nixpkgs.overlays = [
-    (import ./pkgs)
-    
     (final: prev: {
       master = inputs.nixpkgs-master.legacyPackages.${prev.system};
     })

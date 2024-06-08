@@ -41,7 +41,7 @@
         defaultModules = [
           ./modules
           ./global-config.nix
-          ./overlays.nix
+          ./pkgs/overlays.nix
           inputs.home-manager.nixosModules.home-manager
           { home-manager.sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; }
         ];
