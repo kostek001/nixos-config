@@ -2,7 +2,6 @@
 
 {
   programs.noisetorch.enable = true;
-  kostek001.programs.obs.enable = true;
 
   home-manager.users.${username} = { ... }: {
     home.packages = with pkgs; [
@@ -80,7 +79,6 @@
       rpi-imager
       # Other
       galaxy-buds-client
-      #(callPackage (import ../../pkgs/programs/ytermusic) { })
       youtube-music
     ];
   };

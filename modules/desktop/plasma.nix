@@ -23,7 +23,7 @@ in
       inputs.plasma-smart-video-wallpaper-reborn.packages.${system}.default
       qt6.qtmultimedia
 
-      (callPackage (import ../../pkgs/programs/wallpaper-engine-kde-plugin) { })
+      inputs.kostek001-pkgs.packages.${system}.wallpaper-engine-kde-plugin
       qt6.qtwebsockets
     ];
 

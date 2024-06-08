@@ -8,7 +8,7 @@
 
     (final: prev: {
       arrpc = prev.arrpc.overrideAttrs (oldAttrs: {
-        patches = [ pkgs/misc/arrpc/log_ids.patch ];
+        patches = [ misc/arrpc/log_ids.patch ];
       });
     })
 
@@ -16,5 +16,7 @@
     (final: prev: {
       nixd = prev.master.nixd;
     })
+
+    inputs.kostek001-pkgs.overlays.default
   ];
 }
