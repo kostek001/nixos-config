@@ -12,8 +12,6 @@ in
   config = mkIf cfg.enable {
     users.defaultUserShell = pkgs.zsh;
 
-    programs.thefuck.enable = true;
-
     programs.zsh = {
       enable = true;
       syntaxHighlighting = {
