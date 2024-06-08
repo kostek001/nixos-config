@@ -1,6 +1,7 @@
 { python3Packages
 , fetchFromGitHub
 , android-tools
+, coreutils
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -18,7 +19,10 @@ python3Packages.buildPythonApplication rec {
     pyudev
   ];
 
-  buildInputs = [ android-tools ];
+  propagatedBuildInputs = [
+    android-tools
+    coreutils
+  ];
 
   doCheck = false;
 }
