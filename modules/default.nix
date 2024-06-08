@@ -14,9 +14,8 @@
     hardware/platformio.nix
     hardware/sound.nix
     misc/doas.nix
+    misc/shell-utils.nix
     misc/zsh.nix
-    programs/obs.nix
-    programs/shell-utils.nix
     services/swayosd-backend.nix
   ];
 }

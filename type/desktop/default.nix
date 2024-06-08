@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ config, pkgs, username, ... }:
 
 {
   kostek001.boot.plymouth.enable = true;
@@ -44,6 +44,9 @@
     enable = true;
     package = pkgs.nix-ld-rs;
   };
+
+  # For OBS virtual camera
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
   imports = [
     ./pkgs.nix
