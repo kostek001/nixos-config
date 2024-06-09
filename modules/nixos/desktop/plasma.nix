@@ -20,8 +20,8 @@ in
       kdePackages.qtstyleplugin-kvantum
       kdePackages.partitionmanager
       
-      inputs.plasma-smart-video-wallpaper-reborn.packages.${system}.default
-      qt6.qtmultimedia
+      # inputs.kostek001-pkgs.packages.${system}.plasma-smart-video-wallpaper-reborn
+      # qt6.qtmultimedia
 
       inputs.kostek001-pkgs.packages.${system}.wallpaper-engine-kde-plugin
       qt6.qtwebsockets
