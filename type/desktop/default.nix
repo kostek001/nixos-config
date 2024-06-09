@@ -6,6 +6,7 @@
   kostek001.misc.zsh.enable = true;
 
   kostek001.games.steam.enable = true;
+  kostek001.games.vr.enable = true;
 
   kostek001.hardware.adb.enable = true;
   kostek001.hardware.hid.enable = true;

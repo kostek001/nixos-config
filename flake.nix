@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lemonake = {
+      url = "github:passivelemon/lemonake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # HOME MANAGER
     home-manager = {
       url = "github:nix-community/home-manager/master";

@@ -121,6 +121,24 @@
         "type": "github"
       }
     },
+    "flake-parts_3": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1717285511,
+        "narHash": "sha256-iKzJcpdXih14qYVcZ9QC9XuZYnPc6T8YImb6dX166kw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "2a55567fcf15b1b1c7ed712a2c6fadaec7412ea8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -250,6 +268,27 @@
         "type": "github"
       }
     },
+    "lemonake": {
+      "inputs": {
+        "flake-parts": "flake-parts_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717698316,
+        "narHash": "sha256-Q2C8PBVOrHl9VGXuw0RCFxqAr8c+uqMXPyUnHBRyuJM=",
+        "owner": "passivelemon",
+        "repo": "lemonake",
+        "rev": "caff5b269780e45e37aac9d1edcae8b72b6560f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "passivelemon",
+        "repo": "lemonake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1717786204,
@@ -267,6 +306,18 @@
       }
     },
     "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1717284937,
+        "narHash": "sha256-lIbdfCsf8LMFloheeE6N31+BMIeixqyQWbSr2vk79EQ=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
+      }
+    },
+    "nixpkgs-lib_2": {
       "locked": {
         "lastModified": 1717284937,
         "narHash": "sha256-lIbdfCsf8LMFloheeE6N31+BMIeixqyQWbSr2vk79EQ=",
@@ -366,6 +417,7 @@
         "home-manager": "home-manager_2",
         "kostek001-pkgs": "kostek001-pkgs",
         "lanzaboote": "lanzaboote",
+        "lemonake": "lemonake",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "plasma-manager": "plasma-manager"
