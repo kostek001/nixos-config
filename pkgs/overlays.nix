@@ -12,11 +12,6 @@
       });
     })
 
-    # TEMPORARY
-    (final: prev: {
-      nixd = prev.master.nixd;
-    })
-
     inputs.kostek001-pkgs.overlays.default
   ];
 }
