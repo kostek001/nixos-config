@@ -16,6 +16,7 @@
       ## GRAPHICAL
       # Web browser
       brave
+      firefox
       # Editor
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
@@ -36,15 +37,12 @@
       esptool
 
       ## GRAPHICAL
-      # Web browser
-      firefox
       # Editor
-      arduino
+      #arduino
       # Network
       nextcloud-client
       qbittorrent
       rustdesk-flutter
-      veracrypt
       virt-manager
       # Art
       gimp

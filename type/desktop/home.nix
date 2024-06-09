@@ -4,7 +4,7 @@
   home.stateVersion = "23.11";
 
   imports = [
-    ../../home
+    ../../modules/home-manager
   ];
 
   programs.git = {

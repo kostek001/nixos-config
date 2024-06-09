@@ -3,8 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    kostek001-pkgs = {
+      url = "github:kostek001/nixos-pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,20 +16,15 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    kostek001-pkgs = {
-      url = "github:kostek001/nixos-pkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
     plasma-smart-video-wallpaper-reborn = {
       url = "github:kostek001/plasma-smart-video-wallpaper-reborn";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # HOME
+    # HOME MANAGER
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      # url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -43,7 +41,7 @@
         username = "kostek";
 
         defaultModules = [
-          ./modules
+          ./modules/nixos
           ./global-config.nix
           ./pkgs/overlays.nix
           inputs.home-manager.nixosModules.home-manager
