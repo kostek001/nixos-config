@@ -19,8 +19,8 @@ in
       configFile = {
         kscreenlockerrc = {
           "Daemon"."Timeout" = 5;
-          "Greeter/Wallpaper/org.kde.image/General"."Image" = builtins.toString ../../../resources/background-3.gif;
-          "Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = builtins.toString ../../../resources/background-3.gif;
+          "Greeter/Wallpaper/org.kde.image/General"."Image" = builtins.toString ../../../../resources/background-3.gif;
+          "Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = builtins.toString ../../../../resources/background-3.gif;
         };
       };
     };
