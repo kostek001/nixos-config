@@ -10,7 +10,7 @@
   programs.git = {
     enable = true;
     userName = "kostek001";
-    userEmail = "example@example.net";
+    userEmail = "69671514+kostek001@users.noreply.github.com";
   };
 
   kostek001.games.minecraft.enable = true;
