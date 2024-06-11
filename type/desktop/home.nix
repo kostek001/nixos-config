@@ -7,11 +7,7 @@
     ../../modules/home-manager
   ];
 
-  programs.git = {
-    enable = true;
-    userName = "kostek001";
-    userEmail = "69671514+kostek001@users.noreply.github.com";
-  };
+  programs.git.enable = true;
 
   kostek001.games.minecraft.enable = true;
   kostek001.games.vr.enable = true;
