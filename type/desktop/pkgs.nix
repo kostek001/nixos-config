@@ -21,6 +21,8 @@
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
         nixd
+        # PlatformIO
+        python3
       ]))
       # Network
       bitwarden
