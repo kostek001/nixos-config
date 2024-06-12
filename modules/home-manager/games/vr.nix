@@ -21,7 +21,7 @@ in
     ];
 
 
-    systemd.user.services.vr-adb-auto-forward = {
+    systemd.user.services.adb-auto-forward = {
       Unit = {
         Description = "ADB Auto Forward";
       };
@@ -30,8 +30,8 @@ in
       };
       Service = {
         # This is needed, otherwise no logs
-        ExecStart = pkgs.writeShellScript "vr-adb-auto-forward" ''
-          PYTHONUNBUFFERED=1 exec ${pkgs.adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944
+        ExecStart = pkgs.writeShellScript "adb-auto-forward" ''
+          PYTHONUNBUFFERED=1 exec ${pkgs.adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944,r9757
         '';
       };
     };
