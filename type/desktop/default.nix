@@ -30,7 +30,6 @@
   # Logon
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
-
   services.displayManager.autoLogin = {
     enable = true;
     user = username;
@@ -39,6 +38,7 @@
   virtualisation.libvirtd.enable = true;
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
+  # Expand user tmp
   services.logind.extraConfig = "RuntimeDirectorySize=40%";
 
   programs.nix-ld = {
@@ -48,6 +48,9 @@
 
   # For OBS virtual camera
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+
+  # Remove xterm
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   imports = [
     ./pkgs.nix
