@@ -13,10 +13,5 @@
     })
 
     inputs.kostek001-pkgs.overlays.default
-
-    # TEMPORARY
-    (final: prev: {
-      wlx-overlay-s = prev.master.wlx-overlay-s;
-    })
   ];
 }

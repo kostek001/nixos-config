@@ -28,7 +28,7 @@ in
       };
     };
 
-    hardware.opengl.extraPackages = [
+    hardware.graphics.extraPackages = [
       inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers
     ];
 
