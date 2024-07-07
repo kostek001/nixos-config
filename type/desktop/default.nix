@@ -35,7 +35,10 @@
     user = username;
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+  };
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   # Expand user tmp
