@@ -23,6 +23,7 @@
         nixd
         # PlatformIO
         python3
+        sops
       ]))
       # Network
       bitwarden
@@ -51,7 +52,7 @@
       inkscape-with-extensions
       krita
       libsForQt5.kdenlive
-      (blender.withPackages (ps: with ps; [ 
+      (blender.withPackages (ps: with ps; [
         toml
         (buildPythonPackage rec {
           pname = "py_slvs";
@@ -64,7 +65,7 @@
           propagatedBuildInputs = [ setuptools wheel scikit-build cmake ninja ];
           nativeBuildInputs = [ swig ];
           dontUseCmakeConfigure = true;
-        }) 
+        })
       ]))
       prusa-slicer
       # Communication
