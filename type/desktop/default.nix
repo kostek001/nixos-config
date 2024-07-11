@@ -55,6 +55,13 @@
   # Remove xterm
   services.xserver.excludePackages = [ pkgs.xterm ];
 
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+    };
+  };
+
   imports = [
     ./pkgs.nix
     ./firewall.nix

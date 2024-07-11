@@ -16,7 +16,6 @@
       ## GRAPHICAL
       # Web browser
       brave
-      firefox
       # Editor
       (vscodium-fhsWithPackages (pkgs: with pkgs; [
         nixpkgs-fmt
