@@ -19,7 +19,6 @@ in
 
     environment.systemPackages = with pkgs; [
       kdePackages.qtstyleplugin-kvantum
-      kdePackages.partitionmanager
 
       # inputs.kostek001-pkgs.packages.${system}.plasma-smart-video-wallpaper-reborn
       # qt6.qtmultimedia
@@ -27,6 +26,8 @@ in
       inputs.kostek001-pkgs.packages.${system}.wallpaper-engine-kde-plugin
       qt6.qtwebsockets
     ];
+
+    programs.partition-manager.enable = true;
 
     programs.kdeconnect.enable = true;
 
