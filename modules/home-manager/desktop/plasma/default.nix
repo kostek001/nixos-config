@@ -12,6 +12,11 @@ in
     programs.plasma = {
       enable = true;
 
+      powerdevil = {
+        autoSuspend.action = "nothing";
+        turnOffDisplay.idleTimeoutWhenLocked = 20;
+      };
+
       shortcuts = {
         "services/org.kde.konsole.desktop"."_launch" = "Meta+T";
       };
