@@ -25,6 +25,7 @@ in
 
       inputs.kostek001-pkgs.packages.${system}.wallpaper-engine-kde-plugin
       qt6.qtwebsockets
+      qt6.qtmultimedia
     ];
 
     programs.partition-manager.enable = true;
