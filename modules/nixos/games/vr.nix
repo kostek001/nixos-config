@@ -34,7 +34,7 @@ in
 
     environment.systemPackages = with pkgs; [
       xrgears
-      wlx-overlay-s
+      #wlx-overlay-s # Build failed: 0.4.2
     ];
   };
 }
