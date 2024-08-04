@@ -66,7 +66,9 @@
           dontUseCmakeConfigure = true;
         })
       ]))
+      openscad
       prusa-slicer
+      kicad
       # Communication
       signal-desktop
       # Audio

@@ -62,6 +62,8 @@
     };
   };
 
+  services.flatpak.enable = true;
+
   imports = [
     ./pkgs.nix
     ./firewall.nix
