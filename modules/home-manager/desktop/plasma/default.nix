@@ -12,7 +12,7 @@ in
     programs.plasma = {
       enable = true;
 
-      powerdevil = {
+      powerdevil.AC = {
         autoSuspend.action = "nothing";
         turnOffDisplay.idleTimeoutWhenLocked = 20;
       };

@@ -14,7 +14,7 @@ in
 
     boot.plymouth = {
       enable = true;
-      font = "${pkgs.noto-fonts.override { variants = [ "NotoSans" ]; }}/share/fonts/noto/NotoSans\\[wdth,wght\\].ttf";
+      font = "${pkgs.noto-fonts.override { variants = [ "NotoSans" ]; }}/share/fonts/noto/NotoSans[wdth,wght].ttf";
       theme = "hexagon_2";
       themePackages = [ (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ config.boot.plymouth.theme ]; }) ];
     };
