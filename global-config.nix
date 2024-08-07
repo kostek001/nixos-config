@@ -8,6 +8,7 @@
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       cores = 4;
+      keep-outputs = true;
     };
     gc = {
       automatic = true;
