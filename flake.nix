@@ -16,9 +16,12 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     lemonake = {
       url = "github:passivelemon/lemonake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox = {
+      url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,7 +48,13 @@
           ./global-config.nix
           ./pkgs/overlays.nix
           inputs.home-manager.nixosModules.home-manager
-          { home-manager.sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ]; }
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.sharedModules = [
+              inputs.plasma-manager.homeManagerModules.plasma-manager
+              inputs.lemonake.homeManagerModules.steamvr
+            ];
+          }
         ];
       in
       {

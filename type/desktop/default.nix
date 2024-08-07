@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, inputs, ... }:
 
 {
   kostek001.boot.plymouth.enable = true;
@@ -19,6 +19,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${username} = import ./home.nix;
+    backupFileExtension = "hm-backup";
   };
 
   # ========================
@@ -60,6 +61,7 @@
     preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
+    package = inputs.firefox.packages.${pkgs.system}.firefox-beta-bin;
   };
 
   services.flatpak.enable = true;
