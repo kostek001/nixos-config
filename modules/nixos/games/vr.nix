@@ -10,21 +10,22 @@ in
   };
 
   imports = [
-    ../../../pkgs/games/wivrn/module.nix
+    inputs.lemonake.nixosModules.wivrn
   ];
 
   config = mkIf cfg.enable {
     services.wivrn = {
       enable = true;
-      # package = inputs.lemonake.packages.${pkgs.system}.wivrn.override { cudaSupport = true; };
-      package = (pkgs.callPackage ../../../pkgs/games/wivrn/package.nix { }).override { cudaSupport = true; };
+      package = inputs.lemonake.packages.${pkgs.system}.wivrn.override { cudaSupport = true; };
       openFirewall = true;
-      highPriority = true;
       defaultRuntime = true;
-      monadoEnvironment = {
-        XRT_COMPOSITOR_COMPUTE = "1";
-        XRT_COMPOSITOR_LOG = "debug";
-        XRT_LOG = "debug";
+      autoStart = true;
+      config = {
+        enable = true;
+        json = {
+          application = [ pkgs.wlx-overlay-s ];
+          tcp_only = true;
+        };
       };
     };
 

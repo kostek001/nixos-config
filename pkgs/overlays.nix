@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 
 {
   nixpkgs.overlays = [
@@ -12,6 +12,8 @@
       });
     })
 
-    inputs.kostek001-pkgs.overlays.default
+    (final: prev: {
+      wlx-overlay-s = prev.master.wlx-overlay-s;
+    })
   ];
 }
