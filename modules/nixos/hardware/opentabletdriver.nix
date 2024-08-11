@@ -26,15 +26,14 @@ in
 
     # UDEV rules for Huion HS611
     services.udev.extraRules = ''
-    SUBSYSTEMS=="usb", ENV{ID_USB_INTERFACE_NUM}="$attr{bInterfaceNumber}"
+      SUBSYSTEMS=="usb", ENV{ID_USB_INTERFACE_NUM}="$attr{bInterfaceNumber}"
+  
+      #SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="01", ATTR{authorized}="0"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="02", ATTR{authorized}="0"
 
-    
-    #SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="01", ATTR{authorized}="0"
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="02", ATTR{authorized}="0"
-
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="00", MODE="0666"
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
-    SUBSYSTEM=="input", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="00", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="00", MODE="0666"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
+      SUBSYSTEM=="input", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", ENV{ID_USB_INTERFACE_NUM}=="00", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     '';
   };
 }

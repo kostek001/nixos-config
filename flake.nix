@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     kostek001-pkgs = {
-      url = "github:kostek001/nixos-pkgs";
+      url = "github:kostek001/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     lanzaboote = {
