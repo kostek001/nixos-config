@@ -39,6 +39,10 @@ in
         wallpaper = builtins.toString ../../../../resources/background-2.jpeg;
       };
 
+      input.keyboard.layouts = [
+        { layout = "pl"; }
+      ];
+
       panels = [
         {
           location = "top";
