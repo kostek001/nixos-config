@@ -1,4 +1,4 @@
-{ pkgs, username, fullname, hostname, inputs, ... }:
+{ pkgs, username, fullname, inputs, ... }:
 
 {
   system.stateVersion = "23.11";
@@ -32,10 +32,7 @@
     settings.PasswordAuthentication = false;
   };
 
-  networking.hostName = hostname;
-
-  # @---- TIME & LOCALE ----@
-
+  ## Time & locale
   time.timeZone = "Europe/Warsaw";
 
   i18n.defaultLocale = "pl_PL.UTF-8";
@@ -51,27 +48,6 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-
-  # @---- DESKTOP ENVIRONMENT ----@
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "pl";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "pl2";
-
-  environment.shellAliases = {
-    nix-update = "sudo nixos-rebuild switch";
-    nix-clean = "sudo nix-collect-garbage -d";
-  };
-
   ## USERS
   users.users.${username} = {
     isNormalUser = true;
@@ -79,11 +55,8 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  kostek001.misc.doas.enable = true;
-
   ## SYSTEM PACKAGES
   nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     #### Core Packages
     lz4
@@ -92,9 +65,14 @@
     pciutils
     usbutils
     file
-    neofetch
     fastfetch
   ] ++ [ inputs.agenix.packages.${system}.default ];
 
+  kostek001.misc.doas.enable = true;
   kostek001.programs.shell-utils.enable = true;
+
+  environment.shellAliases = {
+    nix-update = "sudo nixos-rebuild switch";
+    nix-clean = "sudo nix-collect-garbage -d";
+  };
 }

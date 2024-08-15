@@ -6,16 +6,16 @@
 
 {
   imports = [
+    ./customization.nix
     ./hardware-configuration.nix
   ];
 
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   kostek001.boot.loader.lanzaboote.enable = true;
 
   kostek001.hardware.nvidia.enable = true;
-
   powerManagement.cpuFreqGovernor = null;
-
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   # Disable password timeout
   boot.kernelParams = [ "rootflags=x-systemd.device-timeout=0" ];

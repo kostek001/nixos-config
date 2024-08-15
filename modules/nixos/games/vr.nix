@@ -19,7 +19,7 @@ in
       package = inputs.lemonake.packages.${pkgs.system}.wivrn.override { cudaSupport = true; };
       openFirewall = true;
       defaultRuntime = true;
-      autoStart = true;
+      autoStart = false;
       config = {
         enable = true;
         json = {
@@ -33,9 +33,9 @@ in
       inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers
     ];
 
-    environment.systemPackages = with pkgs; [
-      xrgears
-      #wlx-overlay-s # Build failed: 0.4.2
-    ];
+    # SlimeVR
+    environment.systemPackages = with pkgs; [ inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr ];
+    networking.firewall.allowedTCPPorts = [ 21110 ];
+    networking.firewall.allowedUDPPorts = [ 35903 6969 ];
   };
 }

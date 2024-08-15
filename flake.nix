@@ -53,8 +53,10 @@
             home-manager.sharedModules = [
               inputs.plasma-manager.homeManagerModules.plasma-manager
               inputs.lemonake.homeManagerModules.steamvr
+              ./modules/home-manager
             ];
           }
+          ./config
         ];
       in
       {
@@ -68,12 +70,12 @@
             specialArgs = {
               inherit inputs;
               inherit username fullname;
-              inherit hostname;
             };
 
             modules = [
+              { networking.hostName = hostname; }
+              { kostek001.config.type = "full"; }
               ./hosts/kostek-pc/config.nix
-              ./type/desktop
             ] ++ defaultModules;
           };
       };

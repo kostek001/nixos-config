@@ -12,7 +12,6 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       inputs.lemonake.packages.${pkgs.system}.alvr
-      inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr
     ] ++ [
       BeatSaberModManager
       sidequest
