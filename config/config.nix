@@ -58,5 +58,6 @@
     libreoffice
     vlc
     qpwgraph
+    kdePackages.filelight
   ];
 }
