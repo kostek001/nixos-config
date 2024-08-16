@@ -1,8 +1,6 @@
 { pkgs, username, fullname, inputs, ... }:
 
 {
-  system.stateVersion = "23.11";
-
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -18,6 +16,8 @@
   };
 
   security.protectKernelImage = true;
+
+  hardware.enableRedistributableFirmware = true;
 
   # Fix booting from USB to SATA adapter
   boot.kernelParams = [ "quiet" "nosgx" ] ++ [
