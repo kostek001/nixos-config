@@ -45,7 +45,7 @@
   zramSwap.enable = true;
 
   # Filesystem options
-  fileSystems."/".options = [ "defaults" "mode=755" ];
+  fileSystems."/".options = [ "defaults" "mode=755" "size=10G" ];
   fileSystems."/home".options = [ "noatime" "compress=zstd" ];
   fileSystems."/nix".options = [ "noatime" "compress=zstd" ];
   fileSystems."/persistence".options = [ "noatime" "compress=zstd" ];
