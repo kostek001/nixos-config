@@ -24,6 +24,7 @@
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
 
     # HOME MANAGER
     home-manager = {
@@ -60,24 +61,31 @@
         ];
       in
       {
-        kostek-pc =
-          let
-            hostname = "kostek-pc";
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-
-            specialArgs = {
-              inherit inputs;
-              inherit username fullname;
-            };
-
-            modules = [
-              { networking.hostName = hostname; }
-              { kostek001.config.type = "full"; }
-              ./hosts/kostek-pc/config.nix
-            ] ++ defaultModules;
+        kostek-pc = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit username fullname;
           };
+          modules = [
+            { networking.hostName = "kostek-pc"; }
+            { kostek001.config.type = "full"; }
+            ./hosts/kostek-pc/config.nix
+          ] ++ defaultModules;
+        };
+
+        dellete = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit username fullname;
+          };
+          modules = [
+            { networking.hostName = "dellete"; }
+            { kostek001.config.type = "normal"; }
+            ./hosts/dellete/config.nix
+          ] ++ defaultModules;
+        };
       };
   };
 }
