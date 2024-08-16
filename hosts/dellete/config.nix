@@ -9,6 +9,8 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   kostek001.boot.loader.lanzaboote.enable = true;
 
+  # Impermanence
+  fileSystems."/persistence".neededForBoot = true;
   environment.persistence."/persistence" = {
     enable = true;
     hideMounts = true;
@@ -32,9 +34,18 @@
     ];
   };
 
-  fileSystems."/".options = [ "defaults" "size=25%" "mode=755" ];
-  fileSystems."/persistence".neededForBoot = true;
+  # Swap
+  fileSystems."/swap" = {
+    options = [ "noatime" ];
+    neededForBoot = true;
+  };
+  swapDevices = [{ device = "/swap/swapfile"; }];
 
+  # Zram
+  zramSwap.enable = true;
+
+  # Filesystem options
+  fileSystems."/".options = [ "defaults" "mode=755" ];
   fileSystems."/home".options = [ "noatime" "compress=zstd" ];
   fileSystems."/nix".options = [ "noatime" "compress=zstd" ];
   fileSystems."/persistence".options = [ "noatime" "compress=zstd" ];
@@ -50,4 +61,3 @@
 
   system.stateVersion = "24.05";
 }
-
