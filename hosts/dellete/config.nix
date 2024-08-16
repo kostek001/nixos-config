@@ -19,6 +19,7 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
+      "/etc/secureboot"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
@@ -30,8 +31,6 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
-
-  environment.etc."machine-id".source = "/persistence/etc/machine-id";
 
   fileSystems."/".options = [ "defaults" "size=25%" "mode=755" ];
   fileSystems."/persistence".neededForBoot = true;
