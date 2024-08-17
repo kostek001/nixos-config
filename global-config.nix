@@ -71,6 +71,7 @@
   kostek001.misc.doas.enable = true;
   kostek001.programs.shell-utils.enable = true;
 
+  programs.bash.shellInit = "HISTCONTROL=ignoreboth";
   environment.shellAliases = {
     nix-update = "sudo nixos-rebuild switch";
     nix-clean = "sudo nix-collect-garbage -d";
