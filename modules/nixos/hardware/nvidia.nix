@@ -28,7 +28,7 @@ in
       modesetting.enable = true;
 
       # Temporary fix for https://github.com/NVIDIA/open-gpu-kernel-modules/issues/538
-      #open = true;
+      open = false;
 
       # Required for suspend, due to firmware bugs
       powerManagement.enable = true;
@@ -51,11 +51,11 @@ in
       # Without this nouveau may attempt to be used inestead (despite being blacklisted)
       # __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # disable this because it breaks prusa-slicer somehow
       # Hardware cursors are currently broken on nvidia
-      WLR_NO_HARDWARE_CURSORS = "1";
+      # WLR_NO_HARDWARE_CURSORS = "1";
     };
 
-    environment.sessionVariables = {
-      VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
-    };
+    # environment.sessionVariables = {
+    #   VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
+    # };
   };
 }
