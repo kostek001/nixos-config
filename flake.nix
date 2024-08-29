@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
     # HOME MANAGER
     home-manager = {
@@ -58,6 +59,7 @@
             ];
           }
           ./config
+          inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
         ];
       in
       {

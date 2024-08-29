@@ -34,7 +34,7 @@ in
     ];
 
     # SlimeVR
-    environment.systemPackages = with pkgs; [ inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr ];
+    environment.systemPackages = [ inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr ];
     networking.firewall.allowedTCPPorts = [ 21110 ];
     networking.firewall.allowedUDPPorts = [ 35903 6969 ];
   };
