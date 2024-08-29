@@ -15,8 +15,12 @@
 
   kostek001.hardware.nvidia.enable = true;
 
-  # Disable password timeout
-  boot.kernelParams = [ "rootflags=x-systemd.device-timeout=0" ];
+
+  boot.kernelParams =
+    # Hide "SGX disabled by BIOS."
+    [ "nosgx" ] ++
+    # Disable password timeout
+    [ "rootflags=x-systemd.device-timeout=0" ];
 
   # Enable TRIM
   boot.initrd.luks.devices."luks-fbdcf386-6e66-4d69-87cb-9511d65f7fbe".allowDiscards = true;

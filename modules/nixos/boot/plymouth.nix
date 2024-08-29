@@ -18,5 +18,7 @@ in
       theme = "hexagon_2";
       themePackages = [ (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ config.boot.plymouth.theme ]; }) ];
     };
+
+    boot.kernelParams = [ "quiet" ];
   };
 }

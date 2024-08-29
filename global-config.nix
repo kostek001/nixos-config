@@ -15,14 +15,9 @@
     };
   };
 
+  # Kernel
   security.protectKernelImage = true;
-
   hardware.enableRedistributableFirmware = true;
-
-  # Fix booting from USB to SATA adapter
-  boot.kernelParams = [ "quiet" "nosgx" ] ++ [
-    "usb-storage.quirks=152d:0583:u"
-  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
