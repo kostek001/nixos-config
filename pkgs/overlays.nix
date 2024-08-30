@@ -24,5 +24,10 @@
     (final: prev: {
       wlx-overlay-s = prev.master.wlx-overlay-s;
     })
+
+    # Temporary update to 0.0.6
+    (final: prev: {
+      beatsabermodmanager = final.callPackage ./games/beatsabermodmanager/package.nix { };
+    })
   ];
 }
