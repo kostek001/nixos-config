@@ -8,18 +8,22 @@
     programs.cava = {
       enable = true;
       settings = {
-        general.framerate = 100;
+        general = {
+          framerate = 100;
+          bar_width = 1;
+          bar_spacing = 1;
+        };
         output.method = "noncurses";
         color = {
           gradient = 1;
           gradient_count = 7;
-          gradient_color_1 = "#0080ff";
-          gradient_color_2 = "#ae00ff";
-          gradient_color_3 = "#b84da3";
-          gradient_color_4 = "#d77689";
-          gradient_color_5 = "#e29878";
-          gradient_color_6 = "#a5a875";
-          gradient_color_7 = "#b4eb8c";
+          gradient_color_1 = "'#0080ff'";
+          gradient_color_2 = "'#ae00ff'";
+          gradient_color_3 = "'#b84da3'";
+          gradient_color_4 = "'#d77689'";
+          gradient_color_5 = "'#e29878'";
+          gradient_color_6 = "'#a5a875'";
+          gradient_color_7 = "'#b4eb8c'";
         };
       };
     };
