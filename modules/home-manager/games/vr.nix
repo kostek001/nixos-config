@@ -13,7 +13,7 @@ in
     home.packages = with pkgs; [
       inputs.lemonake.packages.${pkgs.system}.alvr
     ] ++ [
-      BeatSaberModManager
+      beatsabermodmanager
       sidequest
     ];
 
