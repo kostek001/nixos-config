@@ -15,7 +15,6 @@ in
         jdks = [ jdk8 jdk17 jdk21 ];
         withWaylandGLFW = true;
       })
-      lunar-client
     ];
 
     # Fix audio
