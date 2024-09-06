@@ -24,6 +24,10 @@
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
@@ -73,6 +77,19 @@
             { networking.hostName = "kostek-pc"; }
             { kostek001.config.type = "full"; }
             ./hosts/kostek-pc/config.nix
+          ] ++ defaultModules;
+        };
+
+        dellome = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit username fullname;
+          };
+          modules = [
+            { networking.hostName = "dellome"; }
+            { kostek001.config.type = "normal"; }
+            ./hosts/dellome/config.nix
           ] ++ defaultModules;
         };
 
