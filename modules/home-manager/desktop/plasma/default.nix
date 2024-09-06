@@ -19,6 +19,9 @@ in
       inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors.widget
     ];
 
+
+    xdg.dataFile."plasma-manager/wallpapers".source = ../../../../resources/wallpapers;
+
     programs.plasma = {
       enable = true;
       overrideConfig = true;
@@ -36,7 +39,7 @@ in
         };
         splashScreen.theme = "None";
 
-        wallpaper = builtins.toString ../../../../resources/background-2.jpeg;
+        wallpaper = "${config.xdg.dataHome}/plasma-manager/wallpapers/main.jpeg";
       };
 
       input.keyboard.layouts = [
@@ -139,7 +142,7 @@ in
         lockOnResume = true;
         passwordRequiredDelay = 5;
         appearance = {
-          wallpaper = builtins.toString ../../../../resources/background-3.gif;
+          wallpaper = "${config.xdg.dataHome}/plasma-manager/wallpapers/lockscreen.gif";
         };
       };
 
