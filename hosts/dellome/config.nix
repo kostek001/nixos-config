@@ -8,6 +8,8 @@
     ./disk-config.nix
   ];
 
+  kostek001.config.type = [ "minimalDesktop" "normalDesktop" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

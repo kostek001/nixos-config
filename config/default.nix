@@ -2,21 +2,18 @@
 let
   cfg = config.kostek001.config.type;
 
-  getIndex = element: lib.lists.findFirstIndex (x: x == element) null configTypes;
-  configType = builtins.listToAttrs (builtins.map (x: { name = x; value = (getIndex x) <= (getIndex cfg); }) configTypes);
+  configType = builtins.listToAttrs (builtins.map (x: { name = x; value = builtins.elem x cfg; }) availableConfigTypes);
 
-  configTypes = [ "minimal" "normal" "full" ];
+  availableConfigTypes = [ "minimalDesktop" "normalDesktop" "fullDesktop" ];
 in
 {
   options.kostek001.config.type = lib.mkOption {
-    type = lib.types.enum configTypes;
-    default = "minimal";
+    type = with lib.types; listOf (enum availableConfigTypes);
+    default = [ ];
     #apply = option: builtins.listToAttrs (builtins.map (x: { name = x; value = (getIndex x) <= (getIndex option); }) configTypes);
   };
 
-  imports = [
-    (import ./config.nix { inherit configType; })
-  ];
+  imports = [ (import ./nixos.nix { inherit configType; }) ];
 
   config = {
     home-manager = {
@@ -24,7 +21,7 @@ in
       useUserPackages = true;
       backupFileExtension = "hm-backup";
       users.${username} = { ... }: {
-        imports = [ (import ./home.nix { inherit configType; }) ];
+        imports = [ (import ./home-manager.nix { inherit configType; }) ];
         home.stateVersion = "23.11";
       };
     };

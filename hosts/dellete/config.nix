@@ -6,6 +6,8 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
+  kostek001.config.type = [ "minimalDesktop" "normalDesktop" ];
+
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   kostek001.boot.loader.lanzaboote.enable = true;
 

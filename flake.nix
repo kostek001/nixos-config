@@ -75,7 +75,6 @@
           };
           modules = [
             { networking.hostName = "kostek-pc"; }
-            { kostek001.config.type = "full"; }
             ./hosts/kostek-pc/config.nix
           ] ++ defaultModules;
         };
@@ -88,7 +87,6 @@
           };
           modules = [
             { networking.hostName = "dellome"; }
-            { kostek001.config.type = "normal"; }
             ./hosts/dellome/config.nix
           ] ++ defaultModules;
         };
@@ -101,7 +99,6 @@
           };
           modules = [
             { networking.hostName = "dellete"; }
-            { kostek001.config.type = "normal"; }
             ./hosts/dellete/config.nix
           ] ++ defaultModules;
         };

@@ -1,7 +1,7 @@
 { configType }: { lib, pkgs, username, ... }:
 
 {
-  config = lib.mkIf configType.full {
+  config = lib.mkIf configType.fullDesktop {
     kostek001.games.vr.enable = true;
 
     virtualisation.libvirtd = {
@@ -13,9 +13,5 @@
 
     # Expand user tmp
     services.logind.extraConfig = "RuntimeDirectorySize=40%";
-
-    # Minecraft
-    networking.firewall.allowedTCPPorts = [ 25565 ];
-    networking.firewall.allowedUDPPorts = [ 25565 ];
   };
 }

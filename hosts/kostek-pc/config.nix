@@ -10,11 +10,12 @@
     ./hardware-configuration.nix
   ];
 
+  kostek001.config.type = [ "minimalDesktop" "normalDesktop" "fullDesktop" ];
+
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   kostek001.boot.loader.lanzaboote.enable = true;
 
   kostek001.hardware.nvidia.enable = true;
-
 
   boot.kernelParams =
     # Hide "SGX disabled by BIOS."

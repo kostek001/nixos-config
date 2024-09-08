@@ -1,7 +1,7 @@
 { configType }: { lib, pkgs, ... }:
 
 {
-  config = lib.mkIf configType.normal {
+  config = lib.mkIf configType.normalDesktop {
     kostek001.games.minecraft.enable = true;
     kostek001.programs.obs.enable = true;
 
