@@ -6,6 +6,7 @@
     inputs.impermanence.nixosModules.impermanence
     inputs.disko.nixosModules.disko
     ./disk-config.nix
+    ./customization.nix
   ];
 
   kostek001.config.type = [ "minimalDesktop" "normalDesktop" ];
