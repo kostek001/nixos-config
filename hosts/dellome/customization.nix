@@ -1,6 +1,23 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = username;
+  };
+
+  services.udev.extraHwdb = ''
+    evdev:atkbd:dmi:bvn*:bvr*:bd*:svn*:pn*:pvr*
+      KEYBOARD_KEY_d4=leftmeta
+      KEYBOARD_KEY_db=capslock
+      KEYBOARD_KEY_d5=zoom
+      KEYBOARD_KEY_d6=scale
+  '';
+
+  boot.extraModprobeConfig = ''
+    blacklist melfas_mip4
+  '';
+
   services.keyd = {
     enable = true;
     keyboards.internal = {
@@ -9,8 +26,8 @@
         main = {
           back = "back";
           refresh = "refresh";
-          zoom = "f11";
-          scale = "scale";
+          zoom = "zoom";
+          scale = "cyclewindows";
           print = "print";
           camera = "brightnessdown";
           prog1 = "brightnessup";
@@ -32,7 +49,7 @@
           switchvideomode = "f12";
         };
         alt = {
-          meta = "capslock";
+          scale = "A-f4";
           camera = "kbdillumdown";
           prog1 = "kbdillumup";
         };
