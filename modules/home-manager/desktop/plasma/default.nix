@@ -19,6 +19,15 @@ in
       inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors.widget
     ];
 
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Breeze-Dark";
+        package = pkgs.kdePackages.breeze-gtk;
+      };
+      iconTheme.name = "Papirus-Dark";
+      cursorTheme.name = "Afterglow-Recolored-Catppuccin-Macchiato";
+    };
 
     xdg.dataFile."plasma-manager/wallpapers".source = ../../../../resources/wallpapers;
 
@@ -80,7 +89,12 @@ in
               };
             }
             "org.kde.plasma.panelspacer"
-            "org.kde.plasma.systemtray"
+            {
+              systemTray.items = {
+                extra = [ "org.kde.plasma.battery" ];
+                configs.battery.showPercentage = true;
+              };
+            }
             {
               name = "org.kde.plasma.digitalclock";
               config = {
@@ -183,6 +197,5 @@ in
       #   }
       # '';
     };
-  }
-  ;
+  };
 }
