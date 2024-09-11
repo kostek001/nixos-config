@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, ... }:
+{ lib, inputs, username, ... }:
 
 {
   imports = [
@@ -39,8 +39,12 @@
     ];
   };
 
-  # Swap
-  #swapDevices = [{ device = "/swap/swapfile"; }];
+  security.protectKernelImage = lib.mkForce false;
+  boot.resumeDevice = "/dev/mapper/nixos";
+  boot.kernelParams = [ "nosgx" ] ++ [ "resume_offset=533760" ];
+
+  boot.loader.systemd-boot.consoleMode = "auto";
+  boot.loader.timeout = 0;
 
   # Zram
   zramSwap.enable = true;
