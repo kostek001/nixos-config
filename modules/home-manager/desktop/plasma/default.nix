@@ -19,16 +19,6 @@ in
       inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors.widget
     ];
 
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Breeze-Dark";
-        package = pkgs.kdePackages.breeze-gtk;
-      };
-      iconTheme.name = "Papirus-Dark";
-      cursorTheme.name = "Afterglow-Recolored-Catppuccin-Macchiato";
-    };
-
     xdg.dataFile."plasma-manager/wallpapers".source = ../../../../resources/wallpapers;
 
     programs.plasma = {
