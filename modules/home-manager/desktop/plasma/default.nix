@@ -91,7 +91,6 @@ in
             "org.kde.plasma.panelspacer"
             {
               systemTray.items = {
-                extra = [ "org.kde.plasma.battery" ];
                 configs.battery.showPercentage = true;
               };
             }
