@@ -1,4 +1,4 @@
-{ configType }: { lib, pkgs, ... }:
+{ configType }: { config, lib, pkgs, ... }:
 
 {
   config = lib.mkIf configType.normalDesktop {
@@ -44,7 +44,7 @@
 
     age.secrets."wakatime.cfg" = {
       file = ../../secrets/kostek/wakatime.cfg.age;
-      path = "\${XDG_RUNTIME_DIR}/.wakatime.cfg";
+      path = "${config.home.homeDirectory}/.wakatime.cfg";
     };
 
     # For Discord
