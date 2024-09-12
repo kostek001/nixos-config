@@ -132,13 +132,20 @@ in
         cornerBarrier = true;
       };
 
-      powerdevil.AC = {
-        powerButtonAction = "lockScreen";
-        autoSuspend.action = "nothing";
-        turnOffDisplay = {
-          idleTimeout = 300;
-          idleTimeoutWhenLocked = 20;
+      powerdevil = {
+        AC = {
+          autoSuspend.action = "nothing";
+          turnOffDisplay = {
+            idleTimeout = 300;
+            idleTimeoutWhenLocked = 20;
+          };
+          dimDisplay.enable = false;
         };
+        battery = {
+          turnOffDisplay = config.programs.plasma.powerdevil.AC.turnOffDisplay;
+          whenSleepingEnter = "standbyThenHibernate";
+        };
+        lowBattery = { };
       };
 
       shortcuts = {
