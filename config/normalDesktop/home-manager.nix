@@ -42,6 +42,11 @@
         ]);
     };
 
+    age.secrets."wakatime.cfg" = {
+      file = ../../secrets/kostek/wakatime.cfg.age;
+      path = "\${XDG_RUNTIME_DIR}/.wakatime.cfg";
+    };
+
     # For Discord
     services.arrpc.enable = true;
 

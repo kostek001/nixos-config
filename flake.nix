@@ -57,6 +57,7 @@
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.sharedModules = [
+              inputs.agenix.homeManagerModules.default
               inputs.plasma-manager.homeManagerModules.plasma-manager
               inputs.lemonake.homeManagerModules.steamvr
               ./modules/home-manager
