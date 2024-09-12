@@ -63,7 +63,4 @@
       intel-media-driver
     ];
   };
-
-  virtualisation.docker.enable = true;
-  users.users.${username}.extraGroups = [ "docker" ];
 }
