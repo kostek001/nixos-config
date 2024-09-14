@@ -19,6 +19,8 @@
   security.protectKernelImage = true;
   hardware.enableRedistributableFirmware = true;
 
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   # Enable networking
   networking.networkmanager.enable = true;
 

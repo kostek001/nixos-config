@@ -32,7 +32,6 @@ in
       systemd-boot = {
         enable = false;
         editor = false;
-        configurationLimit = 5;
         consoleMode = "auto";
       };
     };
