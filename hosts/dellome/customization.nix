@@ -63,4 +63,9 @@
       intel-media-driver
     ];
   };
+
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 }
