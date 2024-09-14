@@ -39,6 +39,13 @@
     ];
   };
 
+  # Fix Agenix decryption [+5 hours wasted on this]
+  services.openssh.hostKeys = let path = "/persistence/etc/ssh"; in [
+    { path = "${path}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
+    { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
+  ];
+
+  # Hibernation
   security.protectKernelImage = lib.mkForce false;
   boot.resumeDevice = "/dev/mapper/nixos";
   boot.kernelParams = [ "nosgx" ] ++ [ "resume_offset=533760" ];
