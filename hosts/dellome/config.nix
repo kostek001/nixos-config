@@ -1,4 +1,4 @@
-{ lib, inputs, username, ... }:
+{ config, lib, inputs, username, ... }:
 
 {
   imports = [
@@ -53,9 +53,10 @@
   services.fstrim.enable = true;
 
   users.mutableUsers = false;
-  users.users.${username} = {
-    password = "dupa";
-  };
+
+  age.secrets.userHashedPassword.file = ./secrets/userHashedPassword.age;
+  users.users.${username}.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
+  users.users.root.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
 
   system.stateVersion = "24.05";
 }

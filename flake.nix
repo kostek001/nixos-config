@@ -54,6 +54,7 @@
           ./global-config.nix
           ./pkgs/overlays.nix
           inputs.home-manager.nixosModules.home-manager
+          inputs.agenix.nixosModules.default
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.sharedModules = [
