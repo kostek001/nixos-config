@@ -109,17 +109,24 @@
       X-GNOME-Autostart-Delay=10
     '';
 
-    xdg.configFile."autostart/Vesktop.desktop".text = ''
-      [Desktop Entry]
-      Categories=Network;InstantMessaging;Chat
-      Exec=vesktop --start-minimized
-      GenericName=Internet Messenger
-      Icon=vesktop
-      Keywords=discord;vencord;electron;chat
-      Name=Vesktop
-      StartupWMClass=Vesktop
-      Type=Application
-      Version=1.4
-    '';
+    xdg.configFile."autostart/Vesktop.desktop".text =
+      let
+        script = pkgs.writeScript "vesktop-start" ''
+          #!/usr/bin/env bash
+          sleep 15 && vesktop --start-minimized
+        '';
+      in
+      ''
+        [Desktop Entry]
+        Categories=Network;InstantMessaging;Chat
+        Exec=${script}
+        GenericName=Internet Messenger
+        Icon=vesktop
+        Keywords=discord;vencord;electron;chat
+        Name=Vesktop
+        StartupWMClass=Vesktop
+        Type=Application
+        Version=1.4
+      '';
   };
 }
