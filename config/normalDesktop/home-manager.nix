@@ -39,6 +39,9 @@
           # PlatformIO
           python3
           sops
+          # C++
+          gcc
+          gdb
         ]);
     };
 
