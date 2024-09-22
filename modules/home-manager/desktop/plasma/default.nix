@@ -24,6 +24,7 @@ in
     programs.plasma = {
       enable = true;
       overrideConfig = true;
+      immutableByDefault = true;
 
       workspace = {
         clickItemTo = "select";
