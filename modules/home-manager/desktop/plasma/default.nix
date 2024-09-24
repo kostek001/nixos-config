@@ -157,6 +157,29 @@ in
         };
       };
 
+      window-rules = [
+        {
+          description = "Firefox Picture-in-Picture";
+          match = {
+            window-class = {
+              value = "firefox";
+              type = "substring";
+            };
+            title = {
+              value = "Picture-in-Picture";
+              type = "exact";
+            };
+            window-types = [ "normal" ];
+          };
+          apply = {
+            above = {
+              value = true;
+              apply = "initially";
+            };
+          };
+        }
+      ];
+
       configFile = {
         kdeglobals."KFileDialog Settings" = {
           "Allow Expansion" = false;
@@ -184,6 +207,9 @@ in
 
         # Disable plasma-browser-integration notification
         kded5rc.Module-browserintegrationreminder.autoload = false;
+
+        # Set default directory to home
+        dolphinrc.General.RememberOpenedTabs = false;
       };
 
       # startup.desktopScript."panels_and_wallpaper".text = config.programs.plasma.startup.desktopScript."panels_and_wallpaper".text + ''
