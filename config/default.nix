@@ -4,7 +4,7 @@ let
 
   configType = builtins.listToAttrs (builtins.map (x: { name = x; value = builtins.elem x cfg; }) availableConfigTypes);
 
-  availableConfigTypes = [ "minimalDesktop" "normalDesktop" "fullDesktop" ];
+  availableConfigTypes = [ "minimalDesktop" "normalDesktop" "fullDesktop" "pentesting" ];
 in
 {
   options.kostek001.config.type = lib.mkOption {

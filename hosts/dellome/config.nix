@@ -9,7 +9,7 @@
     ./customization.nix
   ];
 
-  kostek001.config.type = [ "minimalDesktop" "normalDesktop" ];
+  kostek001.config.type = [ "minimalDesktop" "normalDesktop" "pentesting" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
