@@ -1,4 +1,4 @@
-{ configType }: { lib, ... }:
+{ configType }: { lib, pkgs, ... }:
 
 {
   config = lib.mkIf configType.minimalDesktop {
@@ -28,6 +28,25 @@
         theme = "bira";
       };
       history.ignoreDups = true;
+    };
+
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+      plugins = [
+        { name = "tide"; src = pkgs.fishPlugins.tide.src; }
+        # {
+        #   name = "theme-bira";
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "oh-my-fish";
+        #     repo = "theme-bira";
+        #     rev = "342830006df206ab93184f47ec1e102049ab7ffb";
+        #     hash = "sha256-rlhpdI5BswNIvf23TH0oJ88ItpIrp9hX3QV7sQwoF0o=";
+        #   };
+        # }
+      ];
     };
   };
 }
