@@ -32,6 +32,8 @@
     };
   };
 
+  programs.ssh.enableAskPassword = true;
+
   ## Time & locale
   time.timeZone = "Europe/Warsaw";
 
