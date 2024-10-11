@@ -29,7 +29,7 @@
     fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Noto" ]; }) ];
 
     ## OTHER
-    kostek001.hardware.opentabletdriver.enable = true;
+    #kostek001.hardware.opentabletdriver.enable = true;
     kostek001.hardware.platformio.enable = true;
     hardware.bluetooth.enable = true;
     # ADB
