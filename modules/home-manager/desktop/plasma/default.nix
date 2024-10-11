@@ -16,8 +16,13 @@ in
       (catppuccin-papirus-folders.override { flavor = "mocha"; accent = "blue"; })
 
       inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors
-      inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors.widget
     ];
+
+    home.pointerCursor = {
+      name = "Afterglow-Recolored-Catppuccin-Macchiato";
+      package = pkgs.afterglow-cursors-recolored.override { themeVariants = [ "Catppuccin" ]; catppuccinColorVariants = [ "Macchiato" ]; };
+      x11.enable = true;
+    };
 
     xdg.dataFile."plasma-manager/wallpapers".source = ../../../../resources/wallpapers;
 
