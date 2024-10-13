@@ -13,7 +13,7 @@ in
     home.packages = with pkgs; [
       inputs.lemonake.packages.${pkgs.system}.alvr
     ] ++ [
-      beatsabermodmanager
+      #beatsabermodmanager
       sidequest
     ];
 
@@ -32,13 +32,28 @@ in
       };
     };
 
-    services.steamvr = {
-      runtimeOverride = {
+    programs.steamvr = {
+      openvrRuntimeOverride = {
         enable = true;
-        path = "${pkgs.opencomposite}/lib/opencomposite";
+        config = "json";
+        json = {
+          config = [
+            "${config.home.homeDirectory}/.local/share/Steam/config"
+          ];
+          external_drivers = [ ];
+          jsonid = "vrpathreg";
+          log = [
+            "${config.home.homeDirectory}/.local/share/Steam/logs"
+          ];
+          runtime = [
+            "${pkgs.opencomposite}/lib/opencomposite"
+          ];
+          version = 1;
+        };
       };
-      activeRuntimeOverride = {
+      openxrRuntimeOverride = {
         enable = true;
+        config = "path";
         path = "${inputs.lemonake.packages.${pkgs.system}.wivrn}/share/openxr/1/openxr_wivrn.json";
       };
     };

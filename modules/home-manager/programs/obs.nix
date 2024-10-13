@@ -19,7 +19,6 @@ in
         obs-vkcapture
         obs-move-transition
         obs-backgroundremoval
-        advanced-scene-switcher
         obs-pipewire-audio-capture
       ]);
     };

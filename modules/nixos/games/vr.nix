@@ -84,7 +84,7 @@ in
     );
 
     hardware.graphics.extraPackages = [
-      inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers
+      inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers-git
     ];
 
     # SlimeVR
