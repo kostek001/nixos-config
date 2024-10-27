@@ -42,6 +42,10 @@
           # C++
           gcc
           gdb
+          # Java
+          openjdk21
+          # Deno
+          deno
         ]);
     };
 
@@ -70,6 +74,7 @@
       signal-desktop
       element-desktop
       vesktop
+      winbox4
 
       # Creativity
       gimp
