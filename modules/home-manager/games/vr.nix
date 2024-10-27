@@ -54,7 +54,7 @@ in
       openxrRuntimeOverride = {
         enable = true;
         config = "path";
-        path = "${inputs.lemonake.packages.${pkgs.system}.wivrn}/share/openxr/1/openxr_wivrn.json";
+        path = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
       };
     };
   };
