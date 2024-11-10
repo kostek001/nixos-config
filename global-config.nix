@@ -18,6 +18,7 @@
   # Kernel
   security.protectKernelImage = true;
   hardware.enableRedistributableFirmware = true;
+  services.fwupd.enable = true;
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
