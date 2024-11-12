@@ -48,5 +48,12 @@
         # }
       ];
     };
+
+    # Disable bluetooth headset automatic profile switch
+    xdg.configFile."wireplumber/wireplumber.conf.d/11-bluetooth-headset-policy.conf".text = ''
+      wireplumber.settings = {
+        bluetooth.autoswitch-to-headset-profile = false
+      }
+    '';
   };
 }
