@@ -99,11 +99,6 @@
     audacity
   ];
 
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
-  };
-
   # Autostart
   xdg.configFile."autostart/Vesktop.desktop".text =
     let

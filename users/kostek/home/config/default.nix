@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./nextcloud.nix
     ./shells.nix
     ./software.nix
   ];
