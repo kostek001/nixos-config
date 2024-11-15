@@ -1,13 +1,12 @@
-{ config, username, ... }:
+{ username, fullname }: { config, ... }:
 
 {
-  # TODO: replace with hardcoded username
   users.users.${username} = {
     isNormalUser = true;
-    description = "Kostek";
+    description = fullname;
     extraGroups = [ "wheel" ] ++ config.knix.privileged.groups;
   };
 
-  imports = [ ./nixos ];
+  imports = [ (import ./nixos { inherit username; }) ];
   home-manager.users.${username} = import ./home;
 }

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../users/kostek/default.nix
+    (import ../../users/kostek/default.nix { username = "kostek"; fullname = "Kostek"; })
   ];
   knix.users.kostek.autologin.enable = true;
 

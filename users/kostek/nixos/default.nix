@@ -1,8 +1,8 @@
-{ ... }:
+{ username }: { ... }:
 
 {
   imports = [
     ./config
-    ./modules
+    (import ./modules { inherit username; })
   ];
 }

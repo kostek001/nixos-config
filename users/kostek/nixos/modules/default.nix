@@ -1,8 +1,8 @@
-{ ... }:
+{ username }: { ... }:
 
 {
   imports = [
-    ./autologin.nix
+    (import ./autologin.nix { inherit username; })
     ./pentesting.nix
     ./vr.nix
   ];

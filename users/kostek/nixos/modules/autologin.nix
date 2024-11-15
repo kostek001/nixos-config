@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ username }: { config, lib, ... }:
 with lib;
 
 let
@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     services.displayManager.autoLogin = {
       enable = true;
-      user = "kostek";
+      user = username;
     };
   };
 }
