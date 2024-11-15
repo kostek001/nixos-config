@@ -53,12 +53,6 @@
   boot.loader.systemd-boot.consoleMode = "auto";
   boot.loader.timeout = 0;
 
-  # Zram
-  zramSwap.enable = true;
-
-  # Enable TRIM
-  services.fstrim.enable = true;
-
   users.mutableUsers = false;
 
   age.secrets.userHashedPassword.file = ./secrets/userHashedPassword.age;

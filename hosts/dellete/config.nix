@@ -9,7 +9,7 @@
   kostek001.config.type = [ "minimalDesktop" "normalDesktop" ];
 
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  kostek001.boot.loader.lanzaboote.enable = true;
+  knix.boot.loader.lanzaboote.enable = true;
 
   # Impermanence
   fileSystems."/persistence".neededForBoot = true;
@@ -43,9 +43,6 @@
   };
   swapDevices = [{ device = "/swap/swapfile"; }];
 
-  # Zram
-  zramSwap.enable = true;
-
   # Filesystem options
   fileSystems."/".options = [ "defaults" "mode=755" "size=10G" ];
   fileSystems."/home".options = [ "noatime" "compress=zstd" ];
@@ -54,7 +51,6 @@
 
   # Enable TRIM
   boot.initrd.luks.devices."luks-b37a8b13-df13-40d2-893a-791560bc54ce".allowDiscards = true;
-  services.fstrim.enable = true;
 
   users.mutableUsers = false;
   users.users.${username} = {

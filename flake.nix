@@ -46,26 +46,13 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations =
       let
-        fullname = "Kostek";
         username = "kostek";
 
         defaultModules = [
-          ./modules/nixos
           ./global-config.nix
+          ./modules
           ./pkgs/overlays.nix
-          inputs.home-manager.nixosModules.home-manager
           inputs.agenix.nixosModules.default
-          {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.sharedModules = [
-              inputs.agenix.homeManagerModules.default
-              inputs.plasma-manager.homeManagerModules.plasma-manager
-              inputs.lemonake.homeManagerModules.steamvr
-              ./modules/home-manager
-            ];
-          }
-          ./config
-          inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
         ];
       in
       {
@@ -73,11 +60,12 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit username fullname;
+            inherit username;
           };
           modules = [
             { networking.hostName = "kostek-pc"; }
-            ./hosts/kostek-pc/config.nix
+            ./hosts/kostek-pc
+            ./profiles/desktop
           ] ++ defaultModules;
         };
 
@@ -85,7 +73,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit username fullname;
+            inherit username;
           };
           modules = [
             { networking.hostName = "dellome"; }
@@ -97,7 +85,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit username fullname;
+            inherit username;
           };
           modules = [
             { networking.hostName = "dellete"; }

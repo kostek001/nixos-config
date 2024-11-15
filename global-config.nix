@@ -1,4 +1,4 @@
-{ pkgs, username, fullname, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   nix = {
@@ -15,16 +15,17 @@
     };
   };
 
-  # Kernel
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   security.protectKernelImage = true;
+
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
 
-  boot.loader.systemd-boot.configurationLimit = 10;
+  services.fstrim.enable = true;
+  zramSwap.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
+  # SSH
   services.openssh = {
     enable = true;
     settings = {
@@ -32,31 +33,10 @@
       KbdInteractiveAuthentication = false;
     };
   };
-
   programs.ssh.enableAskPassword = true;
 
-  ## Time & locale
+  # TODO: move to automatic timezone, or make machine specific
   time.timeZone = "Europe/Warsaw";
-
-  i18n.defaultLocale = "pl_PL.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pl_PL.UTF-8";
-    LC_IDENTIFICATION = "pl_PL.UTF-8";
-    LC_MEASUREMENT = "pl_PL.UTF-8";
-    LC_MONETARY = "pl_PL.UTF-8";
-    LC_NAME = "pl_PL.UTF-8";
-    LC_NUMERIC = "pl_PL.UTF-8";
-    LC_PAPER = "pl_PL.UTF-8";
-    LC_TELEPHONE = "pl_PL.UTF-8";
-    LC_TIME = "pl_PL.UTF-8";
-  };
-
-  ## USERS
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${fullname}";
-    extraGroups = [ "wheel" "networkmanager" ];
-  };
 
   ## SYSTEM PACKAGES
   nixpkgs.config.allowUnfree = true;
@@ -69,10 +49,11 @@
     usbutils
     file
     fastfetch
+    btop
   ] ++ [ inputs.agenix.packages.${system}.default ];
 
-  kostek001.misc.doas.enable = true;
-  kostek001.programs.shell-utils.enable = true;
+  knix.misc.doas.enable = true;
+  knix.programs.shell-utils.enable = true;
 
   programs.bash.shellInit = "HISTCONTROL=ignoreboth";
   environment.shellAliases = {
