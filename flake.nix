@@ -54,20 +54,19 @@
           ./pkgs/overlays.nix
           inputs.agenix.nixosModules.default
         ];
+
+        createHost = (hostname: arch: extraModules:
+          nixpkgs.lib.nixosSystem {
+            system = arch;
+            specialArgs = { inherit inputs; };
+            modules = [
+              { networking.hostName = hostname; }
+              ./hosts/${hostname}
+            ] ++ defaultModules ++ extraModules;
+          });
       in
       {
-        kostek-pc = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-          };
-          modules = [
-            { networking.hostName = "kostek-pc"; }
-            ./hosts/kostek-pc
-            ./profiles/desktop
-          ] ++ defaultModules;
-        };
+        kostek-pc = createHost "kostek-pc" "x86_64-linux" [ ./profiles/desktop ];
 
         dellome = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

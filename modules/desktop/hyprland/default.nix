@@ -25,7 +25,7 @@ in
 
     security.pam.services.swaylock = { };
 
-    # TODO: fix this and others
+    # fix this and others
     #kostek001.services.swayosd-backend.enable = true;
 
     home-manager.users.${username} = { config, ... }:

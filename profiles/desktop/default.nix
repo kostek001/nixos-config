@@ -59,6 +59,6 @@
   ];
   services.flatpak.enable = true;
 
-  # Expand user tmp TODO: check if this is needed
-  services.logind.extraConfig = "RuntimeDirectorySize=40%";
+  # Expand user tmp
+  # services.logind.extraConfig = "RuntimeDirectorySize=40%";
 }

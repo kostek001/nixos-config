@@ -22,6 +22,7 @@
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
 
+  # Enable FSTRIM (for SSDs) and ZRAM
   services.fstrim.enable = true;
   zramSwap.enable = true;
 
