@@ -67,18 +67,7 @@
       in
       {
         kostek-pc = createHost "kostek-pc" "x86_64-linux" [ ./profiles/desktop ];
-
-        dellome = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-          };
-          modules = [
-            { networking.hostName = "dellome"; }
-            ./hosts/dellome/config.nix
-          ] ++ defaultModules;
-        };
+        dellome = createHost "dellome" "x86_64-linux" [ ./profiles/desktop ];
 
         dellete = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
