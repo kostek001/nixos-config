@@ -61,4 +61,8 @@
 
   # Expand user tmp
   # services.logind.extraConfig = "RuntimeDirectorySize=40%";
+
+  # From nix-community/srvos
+  # improve desktop responsiveness when updating the system
+  nix.daemonCPUSchedPolicy = "idle";
 }
