@@ -9,6 +9,10 @@ in
     enable = mkEnableOption "VR";
   };
 
+  imports = [
+    inputs.lemonake.homeManagerModules.steamvr
+  ];
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       inputs.lemonake.packages.${pkgs.system}.alvr

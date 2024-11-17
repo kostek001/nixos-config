@@ -8,6 +8,10 @@ in
     enable = lib.mkEnableOption "Plasma";
   };
 
+  imports = [
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+  ];
+
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       (catppuccin-kde.override { flavour = [ "mocha" ]; accents = [ "blue" ]; })
