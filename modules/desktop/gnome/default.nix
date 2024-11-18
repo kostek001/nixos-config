@@ -56,5 +56,7 @@ in
       pwvucontrol # Plasma has this builtin
       mission-center # Better system monitor
     ];
+
+    programs.seahorse.enable = true;
   };
 }
