@@ -21,7 +21,6 @@
     pulse.enable = true;
     # jack.enable = true;
   };
-  programs.noisetorch.enable = true;
 
   ## HARDWARE
   hardware.bluetooth.enable = true;
@@ -56,6 +55,7 @@
     libreoffice
     vlc
     qpwgraph
+    easyeffects
   ];
   services.flatpak.enable = true;
 
