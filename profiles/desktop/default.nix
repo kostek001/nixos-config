@@ -9,7 +9,13 @@
   knix.boot.plymouth.enable = true;
 
   ## NETWORKING
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    # Use randomized MAC
+    ethernet.macAddress = "stable";
+    wifi.macAddress = "random";
+    wifi.scanRandMacAddress = true;
+  };
   knix.privileged.groups = [ "networkmanager" ];
 
   ## SOUND
