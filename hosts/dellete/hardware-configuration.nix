@@ -9,55 +9,10 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "rtsx_usb_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    {
-      device = "none";
-      fsType = "tmpfs";
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/92E2-3821";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/persistence" =
-    {
-      device = "/dev/disk/by-uuid/e8ea7272-d0ea-4acb-a152-32e9c4c54b6a";
-      fsType = "btrfs";
-      options = [ "subvol=@persistence" ];
-    };
-
-  boot.initrd.luks.devices."luks-b37a8b13-df13-40d2-893a-791560bc54ce".device = "/dev/disk/by-uuid/b37a8b13-df13-40d2-893a-791560bc54ce";
-
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/e8ea7272-d0ea-4acb-a152-32e9c4c54b6a";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
-
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/e8ea7272-d0ea-4acb-a152-32e9c4c54b6a";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
-
-  fileSystems."/swap" =
-    {
-      device = "/dev/disk/by-uuid/e8ea7272-d0ea-4acb-a152-32e9c4c54b6a";
-      fsType = "btrfs";
-      options = [ "subvol=@swap" ];
-    };
-
-  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

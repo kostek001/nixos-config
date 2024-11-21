@@ -46,8 +46,6 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations =
       let
-        username = "kostek";
-
         defaultModules = [
           ./global-config.nix
           ./modules
@@ -68,18 +66,7 @@
       {
         kostek-pc = createHost "kostek-pc" "x86_64-linux" [ ./profiles/desktop ];
         dellome = createHost "dellome" "x86_64-linux" [ ./profiles/desktop ];
-
-        dellete = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-          };
-          modules = [
-            { networking.hostName = "dellete"; }
-            ./hosts/dellete/config.nix
-          ] ++ defaultModules;
-        };
+        dellete = createHost "dellete" "x86_64-linux" [ ./profiles/desktop ];
       };
   };
 }
