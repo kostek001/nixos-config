@@ -22,4 +22,6 @@
       bluetooth.autoswitch-to-headset-profile = false
     }
   '';
+
+  khome.gnome.enable = true;
 }

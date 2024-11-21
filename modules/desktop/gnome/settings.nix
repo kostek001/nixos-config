@@ -43,11 +43,17 @@ with lib;
             "org/gnome/shell" = {
               disable-user-extensions = false;
               enabled-extensions = builtins.map (x: x.extensionUuid) enabledExtensions;
-              disabled-extensions = [ "" ];
             };
             "org/gnome/shell/extensions/unblank" = {
               power = false;
               time = gvariant.mkInt32 30;
+            };
+
+            "org/gnome/desktop/wm/keybindings" = {
+              switch-applications = [ ];
+              switch-applications-backward = [ ];
+              switch-windows = [ "<Super>Tab" "<Alt>Tab" ];
+              switch-windows-backward = [ "<Shift><Super>Tab" "<Shift><Alt>Tab" ];
             };
           };
         }];
