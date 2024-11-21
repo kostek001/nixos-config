@@ -50,8 +50,8 @@ with lib;
             };
 
             "org/gnome/desktop/wm/keybindings" = {
-              switch-applications = [ ];
-              switch-applications-backward = [ ];
+              switch-applications = gvariant.mkEmptyArray (gvariant.type.string);
+              switch-applications-backward = gvariant.mkEmptyArray (gvariant.type.string);
               switch-windows = [ "<Super>Tab" "<Alt>Tab" ];
               switch-windows-backward = [ "<Shift><Super>Tab" "<Shift><Alt>Tab" ];
             };
