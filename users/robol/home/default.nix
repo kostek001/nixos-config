@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  home.packages = with pkgs; [
-    onlyoffice-desktopeditors
+  home.stateVersion = "24.05";
+  imports = [
+    ./config
   ];
 }
