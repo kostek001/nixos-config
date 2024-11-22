@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
   nix = {
@@ -30,9 +30,13 @@
   services.openssh = {
     enable = true;
     settings = {
+      X11Forwarding = false;
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+      UseDns = false;
     };
+    # Only allow system-level authorized_keys to avoid injections.
+    authorizedKeysFiles = lib.mkForce [ "/etc/ssh/authorized_keys.d/%u" ];
   };
   programs.ssh.enableAskPassword = true;
 
@@ -64,4 +68,8 @@
 
   # Doesnt work with flakes
   programs.command-not-found.enable = false;
+
+  ## From nix-community/srvos
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.network.wait-online.enable = false;
 }
