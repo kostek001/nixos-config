@@ -8,4 +8,9 @@
   users.mutableUsers = false;
   users.users.robol.passwordFile = "/persist/users/robol.pass";
   users.users.root.password = "dupa";
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "robol";
+  };
 }
