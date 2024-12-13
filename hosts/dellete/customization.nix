@@ -6,9 +6,6 @@
   ];
 
   users.mutableUsers = false;
-  users.users.admin = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-    password = "dupa";
-  };
+  users.users.robol.passwordFile = "/persist/users/robol.pass";
+  users.users.root.password = "dupa";
 }
