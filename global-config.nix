@@ -13,6 +13,10 @@
       dates = "daily";
       options = "--delete-older-than 5d";
     };
+    optimise = {
+      automatic = true;
+      dates = [ "daily" ];
+    };
   };
 
   boot.loader.systemd-boot.configurationLimit = 10;
