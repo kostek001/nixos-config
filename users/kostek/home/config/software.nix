@@ -55,17 +55,14 @@
   services.arrpc.enable = true;
 
   home.packages = with pkgs; [
-    appimage-run
-    esptool
-  ] ++ [
     brave
     bitwarden
     bottles
     youtube-music
 
     # Network
-    #nextcloud-client
     qbittorrent
+    planify
 
     # Communication
     signal-desktop
