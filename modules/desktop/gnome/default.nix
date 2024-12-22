@@ -29,7 +29,7 @@ in
 
     services.gnome.core-utilities.enable = false;
     environment.systemPackages = with pkgs; [
-      # baobab # 
+      # baobab # Analyse disk usage
       # epiphany # Web browser
       # gnome-text-editor
       gnome-calculator
@@ -44,19 +44,26 @@ in
       gnome-music
       gnome-system-monitor
       # gnome-weather
-      loupe
-      nautilus
+      loupe # Image viewer
+      nautilus # File manager
       # gnome-connections # Remote desktop
       # simple-scan # Scan app
       # snapshot # Camera app
-      # totem # video player
-      # yelp # help viewer
+      # totem # Video player
+      # yelp # Help viewer
     ] ++ [
       gnome-tweaks
       pwvucontrol # Plasma has this builtin
       mission-center # Better system monitor
     ];
 
-    programs.seahorse.enable = true;
+    programs.evince.enable = true; # Document viewer
+    programs.file-roller.enable = true; # View, modify archives
+    programs.gnome-disks.enable = true; # Manage disks and partitions
+    programs.seahorse.enable = true; # Manage keys and passwords
+
+    # VTE shell integration for gnome-console
+    programs.bash.vteIntegration = mkDefault true;
+    programs.zsh.vteIntegration = mkDefault true;
   };
 }
