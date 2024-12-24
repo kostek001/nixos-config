@@ -15,7 +15,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      inputs.lemonake.packages.${pkgs.system}.alvr
+      alvr
     ] ++ [
       #beatsabermodmanager
       sidequest

@@ -33,7 +33,10 @@
 
   ## DE
   knix.desktop.gnome.enable = true;
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "FiraCode" "Noto" ]; }) ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.noto
+  ];
 
   ## LOCALE
   # TODO: change this to something else

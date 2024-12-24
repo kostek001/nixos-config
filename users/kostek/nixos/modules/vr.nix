@@ -14,14 +14,14 @@ in
   ];
 
   config = mkIf cfg.enable {
-    # TODO: get package from lemonake
     services.wivrn = {
       enable = true;
+      package = pkgs.wivrn.override { cudaSupport = true; };
       openFirewall = false;
       defaultRuntime = true;
       autoStart = false;
       config = {
-        enable = true;
+        enable = false;
         # TODO: Move to home manager module
         json = {
           bitrate = 150 * 1000000;
@@ -32,9 +32,8 @@ in
       };
     };
 
-    hardware.graphics.extraPackages = [
-      inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers-git
-    ];
+    environment.systemPackages = [ pkgs.monado-vulkan-layers ];
+    hardware.graphics.extraPackages = [ pkgs.monado-vulkan-layers ];
 
     # SlimeVR
     # environment.systemPackages = [ inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr ];
