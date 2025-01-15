@@ -10,7 +10,6 @@ with lib;
         appindicator
         just-perfection
         unblank
-        rounded-window-corners-reborn
         pip-on-top
       ];
 
@@ -18,7 +17,7 @@ with lib;
         burn-my-windows
         wallpaper-slideshow
         media-controls
-        media-progress
+        quick-settings-audio-devices-hider
       ]);
     in
     {

@@ -64,7 +64,7 @@
     libreoffice
     vlc
     qpwgraph
-    easyeffects
+    easyeffects # TODO: Add to autostart
   ];
   services.flatpak.enable = true;
 
