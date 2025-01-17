@@ -3,7 +3,6 @@
 {
   knix.boot.loader.lanzaboote.enable = true;
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   boot.kernelParams =
     # Hide "SGX disabled by BIOS."
     [ "nosgx" ];
