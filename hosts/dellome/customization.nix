@@ -18,4 +18,8 @@
   users.users.kostek.extraGroups = [ "docker" ];
 
   knix.boot.plymouth.enable = false;
+
+  programs.git.config = {
+    safe.directory = "/etc/nixos";
+  };
 }

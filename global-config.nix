@@ -53,13 +53,13 @@
     #### Core Packages
     lz4
     wget
-    git
     pciutils
     usbutils
     file
     fastfetch
     btop
   ] ++ [ inputs.agenix.packages.${system}.default ];
+  programs.git.enable = true;
 
   knix.misc.doas.enable = true;
   knix.programs.shell-utils.enable = true;
