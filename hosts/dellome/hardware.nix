@@ -43,6 +43,12 @@
     { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
   ];
 
+  # /tmp on Tmpfs
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "12G";
+  };
+
   ## KEYBOARD
   services.udev.extraHwdb = ''
     evdev:atkbd:dmi:bvn*:bvr*:bd*:svn*:pn*:pvr*
