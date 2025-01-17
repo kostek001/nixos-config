@@ -6,7 +6,7 @@
   ];
 
   ## BOOT
-  knix.boot.plymouth.enable = true;
+  knix.boot.plymouth.enable = lib.mkDefault true;
 
   ## NETWORKING
   networking.networkmanager = {

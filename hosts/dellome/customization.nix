@@ -16,4 +16,6 @@
   # Enable docker
   virtualisation.docker.enable = true;
   users.users.kostek.extraGroups = [ "docker" ];
+
+  knix.boot.plymouth.enable = false;
 }
