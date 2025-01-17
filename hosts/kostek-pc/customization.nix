@@ -12,6 +12,8 @@
 
   home-manager.users.kostek = { ... }: {
     khome.games.vr.enable = true;
+    khome.software.editing.enable = true;
+    khome.software.modeling.enable = true;
   };
 
   virtualisation.docker.rootless = {
