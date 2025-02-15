@@ -8,9 +8,18 @@ in
   options.knix.desktop.gnome = {
     enable = mkEnableOption "Gnome";
     gdm.enable = mkEnableOption "GDM";
+    copyMonitorsXml = {
+      enable = mkEnableOption "Copy monitors.xml";
+      path = mkOption {
+        type = types.path;
+        default = "/usr/gnome/monitors.xml";
+        description = "Path for storing global monitors.xml";
+      };
+    };
   };
 
   imports = [
+    (import ./copy-monitors-xml.nix { inherit cfg; })
     (import ./gdm.nix { inherit cfg; })
     (import ./settings.nix { inherit cfg; })
   ];
@@ -29,7 +38,7 @@ in
 
     services.gnome.core-utilities.enable = false;
     environment.systemPackages = with pkgs; [
-      # baobab # Analyse disk usage
+      baobab # Analyse disk usage
       # epiphany # Web browser
       # gnome-text-editor
       gnome-calculator
@@ -53,7 +62,7 @@ in
       # yelp # Help viewer
     ] ++ [
       gnome-tweaks
-      pwvucontrol # Plasma has this builtin
+      pwvucontrol # Better audio settings
       mission-center # Better system monitor
     ];
 

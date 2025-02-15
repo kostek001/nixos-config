@@ -33,6 +33,7 @@
 
   ## DE
   knix.desktop.gnome.enable = true;
+  knix.desktop.gnome.copyMonitorsXml.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.noto
