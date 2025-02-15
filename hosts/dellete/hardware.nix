@@ -51,7 +51,8 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
-      "/etc/secureboot"
+      "/etc/secureboot" # TODO: remove
+      "/var/lib/sbctl"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
