@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
 
 {
   ## BOOTLOADER
@@ -66,10 +66,44 @@
     ];
   };
 
+  # Fix Agenix decryption when using Impermanence
+  services.openssh.hostKeys = let path = "/persist/etc/ssh"; in [
+    { path = "${path}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
+    { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
+  ];
+
   ## SWAP
   # fileSystems."/swap" = {
   #   options = [ "noatime" ];
   #   neededForBoot = true;
   # };
   # swapDevices = [{ device = "/swap/swapfile"; }];
+
+  ## GRAPHICS
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # VAAPI
+      intel-media-sdk # Quick Sync Video
+    ];
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    open = false; # No open version for older cards
+    nvidiaSettings = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:8:0:0";
+  };
+  services.switcherooControl.enable = true;
 }
