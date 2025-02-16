@@ -1,10 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     (import ../../users/kostek/default.nix { username = "kostek"; fullname = "Kostek"; })
   ];
-  knix.users.kostek.autologin.enable = true;
   knix.users.kostek.pentesting.enable = true;
 
   knix.misc.virtualisation.enable = true;
@@ -14,10 +13,18 @@
     khome.games.vr.enable = true;
     khome.software.editing.enable = true;
     khome.software.modeling.enable = true;
+    home.packages = with pkgs; [ ollama-cuda ];
   };
 
-  virtualisation.docker.rootless = {
+  virtualisation.podman.enable = true;
+  environment.systemPackages = with pkgs; [ podman-tui podman-compose ];
+
+  services.scx = {
     enable = true;
-    setSocketVariable = true;
+    scheduler = "scx_lavd";
   };
+
+  users.users.kostek.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOcXWhr2G4lVo1rfe45hfwcka9OelTroFc+1FJJNA9M kostek@dellome"
+  ];
 }

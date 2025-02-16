@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   knix.boot.loader.lanzaboote.enable = true;
@@ -6,10 +6,6 @@
   boot.kernelParams =
     # Hide "SGX disabled by BIOS."
     [ "nosgx" ];
-
-  # boot.initrd.preFailCommands = ''
-  #   echo Shutting down in 10 seconds, press any key to cancel... && read -t 10 -n 1 -s || shutdown now
-  # '';
 
   knix.hardware.nvidia.enable = true;
 
