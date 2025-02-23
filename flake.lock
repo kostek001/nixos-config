@@ -395,11 +395,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739500990,
-        "narHash": "sha256-d946ADDXLvg3pQ082Wjp9VkwIXuBL1ggrLN2Zw9TJZM=",
+        "lastModified": 1739933045,
+        "narHash": "sha256-FjVZ0c1vxd3jWCQc+zSNmO7T1GHC/TWejr4cH2vOyW4=",
         "owner": "passivelemon",
         "repo": "lemonake",
-        "rev": "1741552060de51b862a3e42b91bad991b354471e",
+        "rev": "c580aa9a3d90470c13f7f4d614571a8ea15c42cd",
         "type": "github"
       },
       "original": {

@@ -15,8 +15,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      alvr
-    ] ++ [
+      wlx-overlay-s
       #beatsabermodmanager
       sidequest
     ];
@@ -37,23 +36,11 @@ in
     };
 
     programs.steamvr = {
+      enable = true;
       openvrRuntimeOverride = {
         enable = true;
-        config = "json";
-        json = {
-          config = [
-            "${config.home.homeDirectory}/.local/share/Steam/config"
-          ];
-          external_drivers = [ ];
-          jsonid = "vrpathreg";
-          log = [
-            "${config.home.homeDirectory}/.local/share/Steam/logs"
-          ];
-          runtime = [
-            "${pkgs.opencomposite}/lib/opencomposite"
-          ];
-          version = 1;
-        };
+        config = "path";
+        path = "${pkgs.opencomposite}/lib/opencomposite";
       };
       openxrRuntimeOverride = {
         enable = true;

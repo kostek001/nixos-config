@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   nixpkgs.overlays = [
@@ -20,9 +20,16 @@
       });
     })
 
-    # Temporary update to 0.0.6
     (final: prev: {
-      beatsabermodmanager = final.callPackage ./games/beatsabermodmanager/package.nix { };
+      wivrn = prev.wivrn.overrideAttrs (prevAttrs: {
+        version = "0.23.2";
+        src = prevAttrs.src.override {
+          hash = "sha256-KpsS0XssSnE2Fj5rrXq1h+yNHhF7BzfPxwRUhZUZEaw=";
+        };
+        # cmakeFlags = prevAttrs.cmakeFlags ++ [
+        #   (lib.cmakeFeature "OPENCOMPOSITE_SEARCH_PATH" "${final.opencomposite}")
+        # ];
+      });
     })
   ];
 }

@@ -20,24 +20,19 @@ in
       openFirewall = false;
       defaultRuntime = true;
       autoStart = false;
-      config = {
-        enable = false;
-        # TODO: Move to home manager module
-        json = {
-          bitrate = 150 * 1000000;
-          scale = 0.8;
-          application = [ pkgs.wlx-overlay-s ];
-          tcp_only = true;
-        };
-      };
+      extraServerFlags = [ "--no-manage-active-runtime" "--no-publish-service" ];
     };
 
-    environment.systemPackages = [ pkgs.monado-vulkan-layers ];
-    hardware.graphics.extraPackages = [ pkgs.monado-vulkan-layers ];
-
-    # SlimeVR
-    # environment.systemPackages = [ inputs.kostek001-pkgs.packages.${pkgs.system}.slimevr ];
-    # networking.firewall.allowedTCPPorts = [ 21110 ];
-    # networking.firewall.allowedUDPPorts = [ 35903 6969 ];
+    # Fix REALTIME priority
+    security.wrappers."wivrn-server" = {
+      setuid = false;
+      owner = "root";
+      group = "root";
+      capabilities = "cap_sys_nice+eip";
+      source = getExe config.services.wivrn.package;
+    };
+    systemd.user.services.wivrn = {
+      serviceConfig = mkForce { ExecStart = builtins.concatStringsSep " " ([ "${config.security.wrapperDir}/wivrn-server" "--systemd" ] ++ config.services.wivrn.extraServerFlags); };
+    };
   };
 }
