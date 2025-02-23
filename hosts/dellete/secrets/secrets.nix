@@ -1,6 +1,6 @@
 let
   dellete = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB94R/srdRPOH3Glw/VysDlX9ark3dlK9HA3Ziu4L2Ax";
-  keys = [ dellete ] ++ (import ../../identities.nix).globalKeys;
+  keys = [ dellete ] ++ (import ../../identities.nix).masterKeys;
 in
 {
   "rootHashedPassword.age".publicKeys = keys;
