@@ -12,14 +12,12 @@ in
   config = mkIf cfg.enable {
     security.doas = {
       enable = true;
-      extraRules = [{
+      wheelNeedsPassword = mkDefault config.security.sudo.wheelNeedsPassword;
+      extraRules = lib.optionals config.security.doas.wheelNeedsPassword [{
         groups = [ "wheel" ];
-        keepEnv = true;
         persist = true;
       }];
     };
-
-    security.doas.wheelNeedsPassword = mkDefault config.security.sudo.wheelNeedsPassword;
 
     # Disable sudo
     security.sudo.enable = false;
