@@ -18,11 +18,14 @@
 
   virtualisation.podman.enable = true;
   environment.systemPackages = with pkgs; [ podman-tui podman-compose ];
+  hardware.nvidia-container-toolkit.enable = true;
 
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
   };
+
+  knix.boot.plymouth.enable = false;
 
   users.users.kostek.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOcXWhr2G4lVo1rfe45hfwcka9OelTroFc+1FJJNA9M kostek@dellome"

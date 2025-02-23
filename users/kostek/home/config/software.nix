@@ -31,7 +31,7 @@
     enable = true;
     mutableExtensionsDir = true;
     extensions = [ ];
-    package = pkgs.vscodium-fhsWithPackages
+    package = pkgs.vscodium.fhsWithPackages
       (pkgs: with pkgs; [
         nixpkgs-fmt
         nixd
