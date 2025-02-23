@@ -8,6 +8,7 @@ in
   options.knix.privileged = {
     groups = mkOption {
       type = with types; (listOf str);
+      default = [ ];
       description = "List of groups for privileged users";
     };
   };
