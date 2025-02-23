@@ -67,6 +67,8 @@
         kostek-pc = createHost "kostek-pc" "x86_64-linux" [ ./profiles/desktop ];
         dellome = createHost "dellome" "x86_64-linux" [ ./profiles/desktop ];
         dellete = createHost "dellete" "x86_64-linux" [ ./profiles/desktop ];
+
+        sdell-1 = createHost "sdell-1" "x86_64-linux" [ ./profiles/server ];
       };
   };
 }

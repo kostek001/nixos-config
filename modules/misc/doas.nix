@@ -19,6 +19,8 @@ in
       }];
     };
 
+    security.doas.wheelNeedsPassword = mkDefault config.security.sudo.wheelNeedsPassword;
+
     # Disable sudo
     security.sudo.enable = false;
 
