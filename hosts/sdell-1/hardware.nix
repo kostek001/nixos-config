@@ -2,10 +2,7 @@
 
 {
   ## BOOTLOADER
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.consoleMode = "auto";
-  boot.loader.timeout = 0;
+  knix.boot.loader.lanzaboote.enable = true;
 
   ## IMPERMANENCE
   fileSystems."/nix/persist".neededForBoot = true;
