@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   khome.games.minecraft.enable = true;
@@ -30,7 +30,6 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = true;
-    extensions = [ ];
     package = pkgs.vscodium.fhsWithPackages
       (pkgs: with pkgs; [
         nixpkgs-fmt
@@ -44,6 +43,11 @@
         # Java
         openjdk21
       ]);
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = inputs.firefox.packages.${pkgs.system}.firefox-beta-bin;
   };
 
   age.secrets."wakatime.cfg" = {

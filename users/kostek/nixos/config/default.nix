@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -8,9 +8,6 @@
 
   programs.adb.enable = true;
   knix.privileged.groups = [ "adbusers" ];
-
-  # Use Firefox beta
-  programs.firefox.package = inputs.firefox.packages.${pkgs.system}.firefox-beta-bin;
 
   knix.hardware.platformio.enable = true;
 
