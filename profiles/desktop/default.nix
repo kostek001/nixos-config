@@ -64,8 +64,9 @@
   environment.systemPackages = with pkgs; [
     libreoffice
     vlc
-    qpwgraph
-    easyeffects # TODO: Add to autostart
+    # Audio
+    helvum
+    easyeffects
   ];
   services.flatpak.enable = true;
 
