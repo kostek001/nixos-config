@@ -6,5 +6,7 @@
   environment.systemPackages = with pkgs; [
     protonplus
     adwsteamgtk
+    mangohud
+    mangojuice
   ];
 }
