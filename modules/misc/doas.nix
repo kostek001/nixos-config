@@ -16,6 +16,7 @@ in
       extraRules = lib.optionals config.security.doas.wheelNeedsPassword [{
         groups = [ "wheel" ];
         persist = true;
+        keepEnv = true;
       }];
     };
 
