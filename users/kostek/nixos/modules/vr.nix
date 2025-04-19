@@ -17,6 +17,7 @@ in
     services.wivrn = {
       enable = true;
       package = pkgs.wivrn.override { cudaSupport = true; };
+      # package = inputs.lemonake.packages.${pkgs.system}.wivrn.override { cudaSupport = true; };
       openFirewall = false;
       defaultRuntime = true;
       autoStart = false;

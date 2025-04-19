@@ -22,9 +22,9 @@
 
     (final: prev: {
       wivrn = prev.wivrn.overrideAttrs (prevAttrs: {
-        version = "0.23.2";
+        version = "0.24.1";
         src = prevAttrs.src.override {
-          hash = "sha256-KpsS0XssSnE2Fj5rrXq1h+yNHhF7BzfPxwRUhZUZEaw=";
+          hash = "sha256-aWQcGIrBoDAO7XqWb3dQLBKg5RZYxC7JxwZ+OBSwmEs=";
         };
         # cmakeFlags = prevAttrs.cmakeFlags ++ [
         #   (lib.cmakeFeature "OPENCOMPOSITE_SEARCH_PATH" "${final.opencomposite}")
