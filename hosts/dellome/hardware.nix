@@ -108,7 +108,11 @@
 
   ## TOUCHSCREEN
   # Disable touchscreen
-  boot.extraModprobeConfig = ''
-    blacklist melfas_mip4
-  '';
+  # boot.extraModprobeConfig = ''
+  #   blacklist melfas_mip4
+  # '';
+
+  # Disable tpm2 (cuz is broken)
+  systemd.tpm2.enable = false;
+  boot.initrd.systemd.tpm2.enable = false;
 }
