@@ -4,10 +4,11 @@
   imports = [
     (import ../../users/kostek/default.nix { username = "kostek"; fullname = "Kostek"; })
   ];
-  knix.users.kostek.pentesting.enable = true;
 
   knix.misc.virtualisation.enable = true;
   knix.users.kostek.vr.enable = true;
+  knix.users.kostek.pentesting.enable = true;
+  knix.desktop.gnome.remote-desktop.enable = true;
 
   home-manager.users.kostek = { ... }: {
     khome.games.vr.enable = true;

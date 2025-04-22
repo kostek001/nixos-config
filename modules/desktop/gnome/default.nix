@@ -8,6 +8,7 @@ in
   options.knix.desktop.gnome = {
     enable = mkEnableOption "Gnome";
     gdm.enable = mkEnableOption "GDM";
+    remote-desktop.enable = mkEnableOption "Remote Desktop";
     copyMonitorsXml = {
       enable = mkEnableOption "Copy monitors.xml";
       path = mkOption {
@@ -21,6 +22,7 @@ in
   imports = [
     (import ./copy-monitors-xml.nix { inherit cfg; })
     (import ./gdm.nix { inherit cfg; })
+    (import ./remote-desktop.nix { inherit cfg; })
     (import ./settings.nix { inherit cfg; })
   ];
 
@@ -55,7 +57,7 @@ in
       # gnome-weather
       loupe # Image viewer
       nautilus # File manager
-      # gnome-connections # Remote desktop
+      gnome-connections # Remote desktop
       # simple-scan # Scan app
       # snapshot # Camera app
       # totem # Video player
