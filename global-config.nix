@@ -78,4 +78,6 @@
   systemd.network.wait-online.enable = false;
 
   boot.initrd.systemd.enable = true;
+
+  boot.tmp.cleanOnBoot = true;
 }
