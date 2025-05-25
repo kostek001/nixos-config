@@ -40,8 +40,8 @@ in
       openvrRuntimeOverride = {
         enable = true;
         config = "path";
-        path = "${pkgs.opencomposite}/lib/opencomposite";
-        # path = "${pkgs.xrizer}/lib/xrizer";
+        # path = "${pkgs.opencomposite}/lib/opencomposite";
+        path = "${pkgs.xrizer}/lib/xrizer";
       };
       openxrRuntimeOverride = {
         enable = true;

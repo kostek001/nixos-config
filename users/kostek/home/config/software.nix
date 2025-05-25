@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   khome.games.minecraft.enable = true;
@@ -45,11 +45,6 @@
       ]);
   };
 
-  programs.firefox = {
-    enable = true;
-    package = inputs.firefox.packages.${pkgs.system}.firefox-beta-bin;
-  };
-
   age.secrets."wakatime.cfg" = {
     file = ../../secrets/wakatime.cfg.age;
     path = "${config.home.homeDirectory}/.wakatime.cfg";
@@ -66,7 +61,7 @@
 
     # Network
     qbittorrent
-    planify
+    # planify # TODO: re add – fails to build
 
     # Communication
     signal-desktop

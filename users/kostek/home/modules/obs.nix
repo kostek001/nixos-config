@@ -17,7 +17,7 @@ in
         obs-tuna
         obs-vkcapture
         obs-move-transition
-        obs-backgroundremoval
+        #obs-backgroundremoval
         obs-pipewire-audio-capture
       ]);
     };

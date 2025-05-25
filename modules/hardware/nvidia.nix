@@ -81,6 +81,8 @@ in
       };
     };
 
+    nixpkgs.config.cudaSupport = true;
+
     environment.variables = {
       # Required to run the correct GBM backend for nvidia GPUs on wayland
       GBM_BACKEND = "nvidia-drm";

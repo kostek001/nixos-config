@@ -2,7 +2,7 @@
   description = "Kostek001's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     kostek001-pkgs = {
       url = "github:kostek001/pkgs";
@@ -33,7 +33,7 @@
 
     # HOME MANAGER
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -49,7 +49,7 @@
         defaultModules = [
           ./global-config.nix
           ./modules
-          ./pkgs/overlays.nix
+          ./pkgs/overlays
           inputs.agenix.nixosModules.default
         ];
 

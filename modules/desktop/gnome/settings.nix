@@ -63,10 +63,15 @@ with lib;
         bibata-cursors
       ]);
 
+      # Old fonts (GNOME <48)
+      fonts.packages = with pkgs; [
+        cantarell-fonts
+        source-code-pro
+      ];
+
       qt = {
         enable = true;
-        style = "adwaita";
-        platformTheme = "gnome";
+        style = "breeze";
       };
 
       # Allow GSConnect connections

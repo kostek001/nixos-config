@@ -38,9 +38,10 @@ in
       evince # Document viewer
     ];
 
-    services.gnome.core-utilities.enable = false;
+    services.gnome.core-apps.enable = false;
     environment.systemPackages = with pkgs; [
       baobab # Analyse disk usage
+      decibels # Music player
       # epiphany # Web browser
       # gnome-text-editor
       gnome-calculator
@@ -58,9 +59,9 @@ in
       loupe # Image viewer
       nautilus # File manager
       gnome-connections # Remote desktop
-      # simple-scan # Scan app
-      # snapshot # Camera app
-      # totem # Video player
+      simple-scan # Scan app
+      snapshot # Camera app
+      totem # Video player
       # yelp # Help viewer
     ] ++ [
       gnome-tweaks
