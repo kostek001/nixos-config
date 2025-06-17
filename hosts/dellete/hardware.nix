@@ -88,22 +88,22 @@
     ];
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
-    open = false; # No open version for older cards
-    nvidiaSettings = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:8:0:0";
-  };
-  services.switcherooControl.enable = true;
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement.enable = true;
+  #   powerManagement.finegrained = true;
+  #   open = false; # No open version for older cards
+  #   nvidiaSettings = false;
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
+  # hardware.nvidia.prime = {
+  #   offload = {
+  #     enable = true;
+  #     enableOffloadCmd = true;
+  #   };
+  #   intelBusId = "PCI:0:2:0";
+  #   nvidiaBusId = "PCI:8:0:0";
+  # };
+  # services.switcherooControl.enable = true;
 }
