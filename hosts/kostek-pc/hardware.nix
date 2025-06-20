@@ -24,6 +24,6 @@
   fileSystems."/mnt/disk-1" = {
     device = "/dev/disk/by-uuid/7A14BB9314BB50BD";
     fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" ];
+    options = [ "rw" "uid=1000" "x-gvfs-show" ];
   };
 }

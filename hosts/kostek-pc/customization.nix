@@ -31,6 +31,9 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOcXWhr2G4lVo1rfe45hfwcka9OelTroFc+1FJJNA9M kostek@dellome"
   ];
 
-  services.tailscale.enable = true;
   services.zerotierone.enable = true;
+
+  hardware.opentabletdriver.enable = true;
+
+  programs.partition-manager.enable = true;
 }
