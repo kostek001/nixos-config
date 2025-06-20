@@ -61,12 +61,13 @@ in
       gnome-connections # Remote desktop
       simple-scan # Scan app
       snapshot # Camera app
-      totem # Video player
+      # totem # Video player
       # yelp # Help viewer
     ] ++ [
       gnome-tweaks
       pwvucontrol # Better audio settings
       mission-center # Better system monitor
+      clapper # Better video player
     ];
 
     programs.evince.enable = true; # Document viewer

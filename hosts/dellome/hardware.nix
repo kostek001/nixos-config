@@ -112,7 +112,7 @@
   #   blacklist melfas_mip4
   # '';
 
-  # Disable tpm2 (cuz is broken)
+  # Disable tpm2 (cuz its broken)
   systemd.tpm2.enable = false;
   boot.initrd.systemd.tpm2.enable = false;
 }

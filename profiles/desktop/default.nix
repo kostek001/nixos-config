@@ -63,7 +63,6 @@
 
   environment.systemPackages = with pkgs; [
     libreoffice
-    vlc
     # Audio
     helvum
     easyeffects

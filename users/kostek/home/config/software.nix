@@ -57,7 +57,6 @@
     brave
     bitwarden
     bottles
-    youtube-music
 
     # Network
     qbittorrent
@@ -70,7 +69,7 @@
     winbox4
 
     # Creativity
-    gimp
+    gimp3
     inkscape-with-extensions
     krita
   ];
