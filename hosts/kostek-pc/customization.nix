@@ -5,35 +5,34 @@
     (import ../../users/kostek/default.nix { username = "kostek"; fullname = "Kostek"; })
   ];
 
+  knix.boot.plymouth.enable = false;
   knix.misc.virtualisation.enable = true;
   knix.users.kostek.vr.enable = true;
   knix.users.kostek.pentesting.enable = true;
 
+  hardware.opentabletdriver.enable = true;
+  services.zerotierone.enable = true;
+  programs.partition-manager.enable = true;
+
+  # User config
   home-manager.users.kostek = { ... }: {
     khome.games.vr.enable = true;
     khome.software.editing.enable = true;
     khome.software.modeling.enable = true;
     home.packages = with pkgs; [ ollama-cuda ];
   };
+  users.users.kostek.openssh.authorizedKeys.keys = [
+    (import ../identities.nix).keys."kostek@dellome"
+  ];
 
+  # Podman
   virtualisation.podman.enable = true;
   environment.systemPackages = with pkgs; [ podman-tui podman-compose ];
   hardware.nvidia-container-toolkit.enable = true;
 
+  # Scheduler
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
   };
-
-  knix.boot.plymouth.enable = false;
-
-  users.users.kostek.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOcXWhr2G4lVo1rfe45hfwcka9OelTroFc+1FJJNA9M kostek@dellome"
-  ];
-
-  services.zerotierone.enable = true;
-
-  hardware.opentabletdriver.enable = true;
-
-  programs.partition-manager.enable = true;
 }
