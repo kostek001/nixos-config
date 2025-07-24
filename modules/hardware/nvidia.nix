@@ -27,26 +27,30 @@ in
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
-      # Temporary fix for https://github.com/NVIDIA/open-gpu-kernel-modules/issues/538
-      open = false;
+      open = mkDefault true;
 
       # Required for suspend, due to firmware bugs
-      powerManagement.enable = true;
+      powerManagement.enable = mkDefault true;
 
       nvidiaSettings = false;
 
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
-    boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " [
-      # Enable some PAT support (it improves performance)
-      "NVreg_UsePageAttributeTable=1"
-      # Temporary fix for https://github.com/NVIDIA/open-gpu-kernel-modules/issues/538
-      "NVreg_EnableGpuFirmware=0"
-    ];
+    boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " (
+      [
+        # Enable some PAT support (it improves performance)
+        "NVreg_UsePageAttributeTable=1"
+      ]
+      # Fix for stutters (use propertiary drivers)
+      # see issues https://github.com/NVIDIA/open-gpu-kernel-modules/issues/538, 
+      # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/693 
+      ++ optionals (!config.hardware.nvidia.open) [ "NVreg_EnableGpuFirmware=0" ]
+    );
 
     systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = mkIf config.hardware.nvidia.powerManagement.enable "false";
 
+    # Fixes gnome suspending after waking up from automatic suspend
     systemd.services."gnome-suspend" = mkIf config.hardware.nvidia.powerManagement.enable {
       description = "suspend gnome shell";
       before = [
