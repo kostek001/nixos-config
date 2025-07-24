@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 with lib;
 
 let
@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     services.wivrn = {
       enable = true;
-      package = pkgs.wivrn.override { cudaSupport = true; };
+      package = pkgs.wivrn.override { ovrCompatSearchPaths = ""; };
       openFirewall = false;
       defaultRuntime = true;
       autoStart = false;
