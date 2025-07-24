@@ -10,7 +10,7 @@
   knix.users.kostek.vr.enable = true;
   knix.users.kostek.pentesting.enable = true;
 
-  hardware.opentabletdriver.enable = true;
+  services.openssh.enable = true;
   services.zerotierone.enable = true;
   programs.partition-manager.enable = true;
 

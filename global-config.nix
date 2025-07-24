@@ -32,7 +32,6 @@
 
   # SSH
   services.openssh = {
-    enable = true;
     settings = {
       X11Forwarding = false;
       PasswordAuthentication = false;
@@ -65,10 +64,6 @@
   knix.programs.shell-utils.enable = true;
 
   programs.bash.shellInit = "HISTCONTROL=ignoreboth";
-  environment.shellAliases = {
-    nix-update = "sudo nixos-rebuild switch";
-    nix-clean = "sudo nix-collect-garbage -d";
-  };
 
   # Doesnt work with flakes
   programs.command-not-found.enable = false;
