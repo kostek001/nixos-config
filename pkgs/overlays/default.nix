@@ -23,5 +23,20 @@
         ];
       });
     })
+
+    (final: prev: {
+      opentabletdriver = prev.opentabletdriver.overrideAttrs (oldAttrs: {
+        src = final.stdenv.mkDerivation {
+          name = "opentabletdriver-src-patched";
+          version = oldAttrs.version;
+          src = oldAttrs.src;
+          phases = [ "unpackPhase" "patchPhase" "installPhase" ];
+          patches = [ ../misc/opentabletdriver/huion_hs611_config.patch ];
+          installPhase = ''
+            cp -r ./ $out/
+          '';
+        };
+      });
+    })
   ];
 }

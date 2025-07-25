@@ -1,0 +1,13 @@
+diff --git a/OpenTabletDriver.Configurations/Configurations/Huion/HS611.json b/OpenTabletDriver.Configurations/Configurations/Huion/HS611.json
+index 486f0a8d..83ade9ad 100644
+--- a/OpenTabletDriver.Configurations/Configurations/Huion/HS611.json
++++ b/OpenTabletDriver.Configurations/Configurations/Huion/HS611.json
+@@ -42,6 +42,7 @@
+     }
+   ],
+   "Attributes": {
+-    "libinputoverride": "1"
++    "libinputoverride": "1",
++    "Interface": "0"
+   }
+ }

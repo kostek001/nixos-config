@@ -8,7 +8,6 @@
     desktop/gnome
     desktop/plasma.nix
     hardware/nvidia.nix
-    hardware/opentabletdriver.nix
     hardware/platformio.nix
     misc/doas.nix
     misc/shell-utils.nix

@@ -13,6 +13,7 @@
   services.openssh.enable = true;
   services.zerotierone.enable = true;
   programs.partition-manager.enable = true;
+  hardware.opentabletdriver.enable = true;
 
   # User config
   home-manager.users.kostek = { ... }: {
