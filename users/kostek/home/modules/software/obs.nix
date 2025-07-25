@@ -2,10 +2,10 @@
 with lib;
 
 let
-  cfg = config.khome.obs;
+  cfg = config.khome.software.obs;
 in
 {
-  options.khome.obs = {
+  options.khome.software.obs = {
     enable = mkEnableOption "OBS Studio";
   };
 

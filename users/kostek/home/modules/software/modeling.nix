@@ -28,7 +28,7 @@ in
       ]))
       openscad
       prusa-slicer
-      kicad
+      #kicad
     ];
   };
 }

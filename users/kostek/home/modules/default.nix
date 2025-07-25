@@ -6,8 +6,8 @@
     ./games/vr.nix
     ./software/editing.nix
     ./software/modeling.nix
+    ./software/obs.nix
     ./gnome.nix
-    ./obs.nix
     ./plasma.nix
   ];
 }

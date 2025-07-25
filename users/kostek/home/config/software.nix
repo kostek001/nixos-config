@@ -2,7 +2,7 @@
 
 {
   khome.games.minecraft.enable = true;
-  khome.obs.enable = true;
+  khome.software.obs.enable = true;
 
   programs.cava = {
     enable = true;
