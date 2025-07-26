@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   ## BOOTLOADER
@@ -24,7 +24,6 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
-      "/etc/secureboot" # TODO: remove
       "/var/lib/sbctl"
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
@@ -76,6 +75,8 @@
           volumedown = "volumedown";
           volumeup = "volumeup";
           sleep = "coffee";
+          # It changes by default to leftshift, unless declared 
+          rightshift = "rightshift";
         };
         meta = {
           back = "f1";
