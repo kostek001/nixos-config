@@ -13,6 +13,10 @@
   users.users.root.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
   users.users.kostek.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
 
+  home-manager.users.kostek = { ... }: {
+    home.packages = with pkgs; [ mixxx ];
+  };
+
   # Podman
   virtualisation.podman.enable = true;
   environment.systemPackages = with pkgs; [ podman-tui podman-compose ];

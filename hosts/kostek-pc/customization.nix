@@ -20,7 +20,7 @@
     khome.games.vr.enable = true;
     khome.software.editing.enable = true;
     khome.software.modeling.enable = true;
-    home.packages = with pkgs; [ ollama-cuda ];
+    home.packages = with pkgs; [ mixxx ];
   };
   users.users.kostek.openssh.authorizedKeys.keys = [
     (import ../identities.nix).keys."kostek@dellome"
