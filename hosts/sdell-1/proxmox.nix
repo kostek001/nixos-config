@@ -10,7 +10,10 @@
   ];
 
   environment.persistence."/nix/persist".directories = [
+    "/var/lib/vz"
     "/var/lib/pve-cluster"
+    "/var/lib/pve-firewall"
+    "/var/lib/pve-manager"
   ];
 
   services.proxmox-ve = {
@@ -20,6 +23,6 @@
   };
 
   # Set up `vmbr0` bridge
-  networking.bridges.vmbr0.interfaces = [ "ether0" ];
+  networking.bridges.vmbr0.interfaces = [ ];
   networking.interfaces.vmbr0.useDHCP = lib.mkDefault true;
 }
