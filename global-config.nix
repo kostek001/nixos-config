@@ -5,7 +5,6 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      cores = 4;
       keep-outputs = true;
     };
     gc = {
@@ -63,7 +62,7 @@
   knix.misc.doas.enable = true;
   knix.programs.shell-utils.enable = true;
 
-  programs.bash.shellInit = "HISTCONTROL=ignoreboth";
+  programs.bash.shellInit = ''export HISTCONTROL=ignoreboth'';
 
   # Doesnt work with flakes
   programs.command-not-found.enable = false;
