@@ -30,6 +30,7 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
 
     # HOME MANAGER
     home-manager = {
@@ -54,9 +55,9 @@
         ];
 
         createHost = (hostname: arch: extraModules:
-          nixpkgs.lib.nixosSystem {
+          nixpkgs.lib.nixosSystem rec {
             system = arch;
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs system; };
             modules = [
               { networking.hostName = hostname; }
               ./hosts/${hostname}
