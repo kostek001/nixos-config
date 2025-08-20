@@ -12,36 +12,30 @@
   networking.useNetworkd = true;
   networking.nftables.enable = true;
 
-  ## CONTAINERS
-  virtualisation.docker.enable = true;
-  virtualisation.docker.autoPrune = {
-    enable = true;
-    dates = "daily";
-    flags = [ "--all" "--filter 'until=24h'" ];
-  };
-  knix.privileged.groups = [ "docker" ];
-  virtualisation.oci-containers.backend = "docker";
-
-  environment.persistence."/nix/persist".directories = [
-    "/var/lib/docker/"
-    "/etc/pelican/"
-    "/var/lib/pelican/"
-  ];
-  virtualisation.oci-containers.containers.pelican_wings = {
-    image = "ghcr.io/pelican-dev/wings:latest";
-    ports = [ "8519:8519" "8520:8520" ];
-    environment = {
-      WINGS_UID = "1000";
-      WINGS_GID = "1000";
-      WINGS_USERNAME = "wings";
+  networking.useDHCP = false;
+  networking.vlans = {
+    vlan1 = {
+      id = 1;
+      interface = "ether0";
     };
-    volumes = [
-      "/var/run/docker.sock:/var/run/docker.sock"
-      "/var/lib/docker/containers/:/var/lib/docker/containers/"
-      "/etc/pelican/:/etc/pelican/"
-      "/var/lib/pelican/:/var/lib/pelican/"
-      "/var/log/pelican/:/var/log/pelican/"
-      "/tmp/pelican/:/tmp/pelican/"
-    ];
+    vlan20 = {
+      id = 20;
+      interface = "ether0";
+    };
   };
+  networking.interfaces = {
+    vlan20.ipv4.addresses = [{
+      address = "192.168.20.13";
+      prefixLength = 24;
+    }];
+  };
+  networking.defaultGateway = {
+    address = "192.168.20.1";
+    interface = "vlan20";
+  };
+  networking.nameservers = [ "192.168.20.1" ];
+
+  # Restrict SSH to vlan20
+  services.openssh.openFirewall = false;
+  networking.firewall.interfaces.vlan20.allowedTCPPorts = [ 22 ];
 }
