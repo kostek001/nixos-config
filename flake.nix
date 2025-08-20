@@ -30,7 +30,6 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
-    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
 
     # HOME MANAGER
     home-manager = {

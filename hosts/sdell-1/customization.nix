@@ -8,7 +8,9 @@
   users.users.serveradmin.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
   users.users.serveradmin.openssh.authorizedKeys.keys = (import ../identities.nix).masterKeys;
 
+  ## NETWORK
   networking.useNetworkd = true;
+  networking.nftables.enable = true;
 
   ## CONTAINERS
   virtualisation.docker.enable = true;

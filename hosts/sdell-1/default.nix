@@ -11,6 +11,6 @@
     inputs.disko.nixosModules.disko
     ./disk-config.nix
 
-    ./proxmox.nix
+    ./vms.nix
   ];
 }
