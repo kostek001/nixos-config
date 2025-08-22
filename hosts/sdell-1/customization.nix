@@ -8,6 +8,9 @@
   users.users.serveradmin.hashedPasswordFile = config.age.secrets.userHashedPassword.path;
   users.users.serveradmin.openssh.authorizedKeys.keys = (import ../identities.nix).masterKeys;
 
+  # Allow rebuilding when /etc/nixos isn't owned by root
+  programs.git.config.safe.directory = "/etc/nixos";
+
   ## NETWORK
   networking.useNetworkd = true;
   networking.nftables.enable = true;
