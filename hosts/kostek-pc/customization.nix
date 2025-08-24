@@ -24,6 +24,7 @@
   };
   users.users.kostek.openssh.authorizedKeys.keys = [
     (import ../identities.nix).keys."kostek@dellome"
+    (import ../identities.nix).keys."kostek@kostek-pixel"
   ];
 
   # Podman
