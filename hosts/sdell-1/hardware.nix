@@ -15,6 +15,8 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/var/lib/sbctl"
+
+      "/srv"
     ];
     files = [
       "/etc/machine-id"

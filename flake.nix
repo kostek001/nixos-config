@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     kostek001-pkgs = {
       url = "github:kostek001/pkgs";
@@ -30,6 +31,10 @@
     };
     impermanence.url = "github:nix-community/impermanence";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # HOME MANAGER
     home-manager = {

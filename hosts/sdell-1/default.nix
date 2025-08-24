@@ -11,6 +11,6 @@
     inputs.disko.nixosModules.disko
     ./disk-config.nix
 
-    ./vms.nix
+    ./vms
   ];
 }
