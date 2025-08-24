@@ -12,7 +12,19 @@ in
   config = mkIf cfg.enable {
     virtualisation.libvirtd = {
       enable = true;
-      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+      qemu = {
+        vhostUserPackages = [ pkgs.virtiofsd ];
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+      };
     };
 
     knix.privileged.groups = [ "libvirtd" ];
