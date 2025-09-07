@@ -27,4 +27,9 @@
     enable = true;
     user = "robol";
   };
+
+  services.printing = {
+    enable = true;
+    browsed.enable = false;
+  };
 }
