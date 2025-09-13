@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 {
   imports = [
     inputs.microvm.nixosModules.host
 
-    ./mvpn.nix
+    ./mvpn
   ];
 
   nixpkgs.overlays = [
@@ -17,16 +17,5 @@
       amneziawg-go = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.amneziawg-go;
       amneziawg-tools = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.amneziawg-tools;
     })
-  ];
-
-  # LIBVIRT
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.package = pkgs.qemu_kvm;
-  };
-  knix.privileged.groups = [ "libvirtd" ];
-
-  environment.persistence."/nix/persist".directories = [
-    "/var/lib/libvirt/"
   ];
 }

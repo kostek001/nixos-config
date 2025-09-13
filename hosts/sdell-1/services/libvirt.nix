@@ -3,9 +3,7 @@
 {
   virtualisation.libvirtd = {
     enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-    };
+    qemu.package = pkgs.qemu_kvm;
   };
   knix.privileged.groups = [ "libvirtd" ];
 
