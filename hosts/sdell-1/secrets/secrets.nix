@@ -4,4 +4,8 @@ let
 in
 {
   "userHashedPassword.age".publicKeys = keys;
+
+  # OTELCOL
+  "otelcol_otlpAuth.age".publicKeys = keys;
+  "otelcol_caCert.age".publicKeys = keys;
 }
