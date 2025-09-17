@@ -32,9 +32,9 @@ in
       # Required for suspend, due to firmware bugs
       powerManagement.enable = mkDefault true;
 
-      nvidiaSettings = false;
+      nvidiaSettings = mkDefault false;
 
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " (
@@ -85,7 +85,6 @@ in
       };
     };
 
-    nixpkgs.config.cudaSupport = true;
 
     environment.variables = {
       # Required to run the correct GBM backend for nvidia GPUs on wayland
@@ -95,5 +94,12 @@ in
       # Hardware cursors are currently broken on nvidia
       # WLR_NO_HARDWARE_CURSORS = "1";
     };
+
+    # nixpkgs.config.cudaSupport = true;
+    nixpkgs.overlays = [
+      (final: prev: {
+        wivrn = prev.wivrn.override { cudaSupport = true; };
+      })
+    ];
   };
 }
