@@ -51,7 +51,7 @@
   };
 
   # For Discord
-  services.arrpc.enable = true;
+  # services.arrpc.enable = true;
 
   home.packages = with pkgs; [
     brave
