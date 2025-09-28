@@ -49,5 +49,22 @@ in
         path = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
       };
     };
+
+    xdg.configFile."wivrn/config.json".text = builtins.toJSON
+      {
+        application = [ "${pkgs.wlx-overlay-s}/bin/wlx-overlay-s" ];
+        bitrate = 150 * 1000000;
+        "tcp_only" = true;
+        "publish-service" = null;
+      };
+
+    xdg.configFile."wlxoverlay/wayvr.conf.d/dashboard.yaml".source = (pkgs.formats.yaml { }).generate "wlxoverlay-wayvr-dashboard.yaml"
+      {
+        dashboard = {
+          exec = "${inputs.nixpkgs-xr.packages.${pkgs.system}.wayvr-dashboard}/bin/wayvr-dashboard";
+          args = "";
+          env = [ ];
+        };
+      };
   };
 }
