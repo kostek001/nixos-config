@@ -28,8 +28,6 @@
   networking.nftables.enable = true;
   networking.firewall.filterForward = true;
 
-  networking.nftables.tables.nixos-nat.family = "ip";
-
   # Restrict SSH to vlan20
   services.openssh.openFirewall = false;
   networking.firewall.interfaces.vlan20.allowedTCPPorts = [ 22 ];

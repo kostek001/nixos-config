@@ -13,6 +13,6 @@
     ./disk-config.nix
 
     ./services
-    ./vms
+    # ./vms
   ];
 }

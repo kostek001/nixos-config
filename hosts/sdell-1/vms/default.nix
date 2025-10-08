@@ -18,4 +18,6 @@
       amneziawg-tools = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.amneziawg-tools;
     })
   ];
+
+  networking.nftables.tables.nixos-nat.family = "ip";
 }
