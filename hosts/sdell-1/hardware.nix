@@ -15,7 +15,7 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/var/lib/sbctl"
-
+      # 
       "/srv"
     ];
     files = [
@@ -45,4 +45,15 @@
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="net", ATTR{address}=="8c:ec:4b:5b:a8:08", NAME="ether0"
   '';
+
+  ## DISKS
+  # s0-point1
+  environment.etc.crypttab.text = ''
+    luks-s0-point1 UUID=cd97759a-62ee-48c1-b083-b421976367c3 /srv/secrets/s0-point1.key luks
+  '';
+  fileSystems."/mnt/s0-point1" = {
+    device = "/dev/mapper/luks-s0-point1";
+    fsType = "btrfs";
+    options = [ "subvol=@root" "noatime" "compress=zstd" ];
+  };
 }
