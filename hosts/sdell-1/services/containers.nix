@@ -5,7 +5,7 @@
   virtualisation.docker.autoPrune = {
     enable = true;
     dates = "daily";
-    flags = [ "--all" "--filter 'until=24h'" ];
+    flags = [ "--all" "--filter=until=168h" ];
   };
   knix.privileged.groups = [ "docker" ];
 
