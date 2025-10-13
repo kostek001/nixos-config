@@ -8,4 +8,9 @@ in
   # OTELCOL
   "otelcol_otlpAuth.age".publicKeys = keys;
   "otelcol_caCert.age".publicKeys = keys;
+
+  # Restic server
+  "resticServer_htpasswd.age".publicKeys = keys;
+  "resticServer_tlsCert.age".publicKeys = keys;
+  "resticServer_tlsKey.age".publicKeys = keys;
 }

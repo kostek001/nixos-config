@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./libvirt.nix
     ./otelcol.nix
+    ./restic-server.nix
   ];
 }
