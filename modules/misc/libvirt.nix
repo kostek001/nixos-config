@@ -2,11 +2,11 @@
 with lib;
 
 let
-  cfg = config.knix.misc.virtualisation;
+  cfg = config.knix.misc.libvirt;
 in
 {
-  options.knix.misc.virtualisation = {
-    enable = mkEnableOption "Virtualization";
+  options.knix.misc.libvirt = {
+    enable = mkEnableOption "Libvirt";
   };
 
   config = mkIf cfg.enable {
@@ -15,16 +15,9 @@ in
       qemu = {
         vhostUserPackages = [ pkgs.virtiofsd ];
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [
-            (pkgs.OVMF.override {
-              secureBoot = true;
-              tpmSupport = true;
-            }).fd
-          ];
-        };
+        ovmf.enable = true;
       };
+      allowedBridges = [ "virbr-user0" "virbr-user1 " "virbr-user2" ];
     };
 
     knix.privileged.groups = [ "libvirtd" ];

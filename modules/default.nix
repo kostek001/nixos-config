@@ -11,7 +11,7 @@
     hardware/platformio.nix
     misc/doas.nix
     misc/shell-utils.nix
-    misc/virtualization.nix
+    misc/libvirt.nix
     ./privileged.nix
   ];
 }

@@ -6,7 +6,7 @@
   ];
 
   knix.boot.plymouth.enable = false;
-  knix.misc.virtualisation.enable = true;
+  knix.misc.libvirt.enable = true;
   knix.users.kostek.vr.enable = true;
   knix.users.kostek.pentesting.enable = true;
 
