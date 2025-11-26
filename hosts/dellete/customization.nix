@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -15,12 +15,10 @@
   # robol
   age.secrets.robolHashedPassword.file = ./secrets/robolHashedPassword.age;
   users.users.robol.hashedPasswordFile = config.age.secrets.robolHashedPassword.path;
-  # olek
-  age.secrets.olekHashedPassword.file = ./secrets/olekHashedPassword.age;
-  users.users.olek = {
+  # Other
+  users.users.user = {
     isNormalUser = true;
-    description = "Olek";
-    hashedPasswordFile = config.age.secrets.olekHashedPassword.path;
+    description = "User";
   };
 
   services.displayManager.autoLogin = {
@@ -31,5 +29,14 @@
   services.printing = {
     enable = true;
     browsed.enable = false;
+    drivers = with pkgs; [
+      cups-filters
+    ];
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
   };
 }
