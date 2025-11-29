@@ -32,6 +32,8 @@
   hardware.bluetooth.enable = true;
 
   ## DE
+  services.logind.killUserProcesses = true;
+
   knix.desktop.gnome.enable = true;
   knix.desktop.gnome.copyMonitorsXml.enable = true;
   fonts.packages = with pkgs; [
