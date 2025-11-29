@@ -34,4 +34,8 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  # Allow Minecraft port
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
 }
