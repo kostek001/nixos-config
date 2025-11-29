@@ -15,10 +15,12 @@
   # robol
   age.secrets.robolHashedPassword.file = ./secrets/robolHashedPassword.age;
   users.users.robol.hashedPasswordFile = config.age.secrets.robolHashedPassword.path;
-  # Other
-  users.users.user = {
+  # user0
+  age.secrets.user0HashedPassword.file = ./secrets/user0HashedPassword.age;
+  users.users.user0 = {
     isNormalUser = true;
     description = "User";
+    hashedPasswordFile = config.age.secrets.user0HashedPassword.path;
   };
 
   services.displayManager.autoLogin = {

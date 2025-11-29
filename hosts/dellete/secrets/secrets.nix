@@ -5,4 +5,5 @@ in
 {
   "rootHashedPassword.age".publicKeys = keys;
   "robolHashedPassword.age".publicKeys = keys;
+  "user0HashedPassword.age".publicKeys = keys;
 }
