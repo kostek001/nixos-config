@@ -34,43 +34,43 @@ in
 
     environment.gnome.excludePackages = with pkgs; [
       gnome-tour
-      geary # Mail reader
-      evince # Document viewer
+      geary # Mail reader (replaced with thunderbird)
     ];
 
+    # TODO: replace with core-apps.enable on 25.11
     services.gnome.core-apps.enable = false;
     environment.systemPackages = with pkgs; [
       baobab # Analyse disk usage
       decibels # Music player
       # epiphany # Web browser
-      # gnome-text-editor
+      gnome-text-editor # Simple text editor
       gnome-calculator
       gnome-calendar
       gnome-characters
       gnome-clocks
       gnome-console
       gnome-contacts
-      # gnome-font-viewer # font-manager better
+      gnome-font-viewer # font-manager is better
       gnome-logs
-      # gnome-maps
+      gnome-maps
       gnome-music
       gnome-system-monitor
-      # gnome-weather
+      gnome-weather
       loupe # Image viewer
       nautilus # File manager
+      papers # Document viewer (replaces evince)
       gnome-connections # Remote desktop
+      showtime # Video player (replaces totem)
       simple-scan # Scan app
       snapshot # Camera app
-      # totem # Video player
       # yelp # Help viewer
     ] ++ [
       gnome-tweaks
       pwvucontrol # Better audio settings
       mission-center # Better system monitor
-      celluloid # Better video player
+      # celluloid # Better video player
     ];
 
-    programs.evince.enable = true; # Document viewer
     programs.file-roller.enable = true; # View, modify archives
     programs.gnome-disks.enable = true; # Manage disks and partitions
     programs.seahorse.enable = true; # Manage keys and passwords
