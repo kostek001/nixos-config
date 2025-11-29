@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, system, ... }:
 
 {
   imports = [
@@ -68,6 +68,11 @@
               final.libjack2
             ];
           });
+    })
+
+    # Version from nixpkgs-unstable has gpu graphs. Maybe removed in the future.
+    (final: prev: {
+      mission-center = inputs.nixpkgs-unstable.legacyPackages.${system}.mission-center;
     })
   ];
 }
