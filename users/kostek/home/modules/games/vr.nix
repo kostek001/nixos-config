@@ -30,7 +30,7 @@ in
       Service = {
         # This is needed, otherwise no logs
         ExecStart = pkgs.writeShellScript "adb-auto-forward" ''
-          PYTHONUNBUFFERED=1 exec ${inputs.kostek001-pkgs.packages.${pkgs.system}.adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944,r9757
+          PYTHONUNBUFFERED=1 exec ${inputs.kostek001-pkgs.packages.${pkgs.stdenv.hostPlatform.system}.adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944,r9757
         '';
       };
     };
@@ -61,7 +61,7 @@ in
     xdg.configFile."wlxoverlay/wayvr.conf.d/dashboard.yaml".source = (pkgs.formats.yaml { }).generate "wlxoverlay-wayvr-dashboard.yaml"
       {
         dashboard = {
-          exec = "${inputs.nixpkgs-xr.packages.${pkgs.system}.wayvr-dashboard}/bin/wayvr-dashboard";
+          exec = "${inputs.nixpkgs-xr.packages.${pkgs.stdenv.hostPlatform.system}.wayvr-dashboard}/bin/wayvr-dashboard";
           args = "";
           env = [ ];
         };

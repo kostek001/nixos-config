@@ -19,7 +19,7 @@ in
       (afterglow-cursors-recolored.override { themeVariants = [ "Catppuccin" ]; catppuccinColorVariants = [ "Macchiato" ]; })
       (catppuccin-papirus-folders.override { flavor = "mocha"; accent = "blue"; })
 
-      inputs.kostek001-pkgs.packages.${pkgs.system}.kde-material-you-colors
+      inputs.kostek001-pkgs.packages.${pkgs.stdenv.hostPlatform.system}.kde-material-you-colors
     ];
 
     home.pointerCursor = {

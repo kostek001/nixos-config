@@ -7,20 +7,12 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      master = inputs.nixpkgs-master.legacyPackages.${prev.system};
+      master = inputs.nixpkgs-master.legacyPackages.${prev.stdenv.hostPlatform.system};
     })
 
     (final: prev: {
       arrpc = prev.arrpc.overrideAttrs (oldAttrs: {
         patches = [ ../misc/arrpc/log_ids.patch ];
-      });
-    })
-
-    (final: prev: {
-      glfw3-minecraft = prev.glfw3-minecraft.overrideAttrs (oldAttrs: {
-        patches = oldAttrs.patches ++ [
-          ../misc/glfw3-minecraft/Dont-crash-on-calls-to-icon.patch
-        ];
       });
     })
 
@@ -39,6 +31,7 @@
       });
     })
 
+    # TODO: move to kostek001/pkgs
     (final: prev: {
       mixxx = prev.mixxx.overrideAttrs
         (oldAttrs:
@@ -68,11 +61,6 @@
               final.libjack2
             ];
           });
-    })
-
-    # Version from nixpkgs-unstable has gpu graphs. Maybe removed in the future.
-    (final: prev: {
-      mission-center = inputs.nixpkgs-unstable.legacyPackages.${system}.mission-center;
     })
   ];
 }

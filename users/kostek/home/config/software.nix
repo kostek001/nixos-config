@@ -55,7 +55,7 @@
 
   home.packages = with pkgs; [
     brave
-    bitwarden
+    bitwarden-desktop
     bottles
 
     # Network

@@ -34,7 +34,7 @@ in
 
       nvidiaSettings = mkDefault false;
 
-      package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+      package = mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     boot.extraModprobeConfig = "options nvidia " + lib.concatStringsSep " " (
@@ -51,7 +51,7 @@ in
     systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = mkIf config.hardware.nvidia.powerManagement.enable "false";
 
     # Fixes gnome suspending after waking up from automatic suspend
-    systemd.services."gnome-suspend" = mkIf (config.services.xserver.desktopManager.gnome.enable && config.hardware.nvidia.powerManagement.enable) {
+    systemd.services."gnome-suspend" = mkIf (config.services.desktopManager.gnome.enable && config.hardware.nvidia.powerManagement.enable) {
       description = "suspend gnome shell";
       before = [
         "systemd-suspend.service"
@@ -68,7 +68,7 @@ in
         ExecStart = ''${pkgs.procps}/bin/pkill -f -STOP ${pkgs.gnome-shell}/bin/gnome-shell'';
       };
     };
-    systemd.services."gnome-resume" = mkIf (config.services.xserver.desktopManager.gnome.enable && config.hardware.nvidia.powerManagement.enable) {
+    systemd.services."gnome-resume" = mkIf (config.services.desktopManager.gnome.enable && config.hardware.nvidia.powerManagement.enable) {
       description = "resume gnome shell";
       after = [
         "systemd-suspend.service"

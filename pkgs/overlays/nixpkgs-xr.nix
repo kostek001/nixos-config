@@ -3,13 +3,13 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      wlx-overlay-s = inputs.nixpkgs-xr.packages.${prev.system}.wlx-overlay-s;
+      wlx-overlay-s = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.wlx-overlay-s;
     })
     (final: prev: {
-      xrizer = inputs.nixpkgs-xr.packages.${prev.system}.xrizer;
+      xrizer = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.xrizer;
     })
     (final: prev: {
-      opencomposite = inputs.nixpkgs-xr.packages.${prev.system}.opencomposite;
+      opencomposite = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.opencomposite;
     })
   ];
 

@@ -13,11 +13,11 @@ in
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
+        package = pkgs.qemu_kvm;
         vhostUserPackages = [ pkgs.virtiofsd ];
         swtpm.enable = true;
-        ovmf.enable = true;
       };
-      allowedBridges = [ "virbr-user0" "virbr-user1 " "virbr-user2" ];
+      allowedBridges = [ "virbr-user0" "virbr-user1" "virbr-user2" ];
     };
 
     knix.privileged.groups = [ "libvirtd" ];

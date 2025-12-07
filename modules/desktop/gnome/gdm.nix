@@ -4,7 +4,7 @@ with lib;
 {
   config = mkIf cfg.gdm.enable {
     services.displayManager.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
+    services.displayManager.gdm.enable = true;
 
     # Disable default console
     systemd.services = {

@@ -56,7 +56,7 @@
     file
     fastfetch
     btop
-  ] ++ [ inputs.agenix.packages.${system}.default ];
+  ] ++ [ inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   programs.git.enable = true;
 
   knix.misc.doas.enable = true;
