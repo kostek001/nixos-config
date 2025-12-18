@@ -17,11 +17,17 @@ in
     boot.lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
+
+      # Auto provision
+      autoGenerateKeys.enable = true;
+      autoEnrollKeys = {
+        enable = true;
+        # Automatically reboot to enroll the keys in the firmware
+        autoReboot = true;
+      };
     };
 
-    environment.systemPackages = with pkgs; [
-      sbctl
-    ];
+    environment.systemPackages = with pkgs; [ sbctl ];
 
     boot.loader = {
       timeout = 0;
@@ -30,7 +36,7 @@ in
         efiSysMountPoint = "/boot";
       };
       systemd-boot = {
-        enable = false;
+        enable = mkForce false;
         editor = false;
         consoleMode = "auto";
       };

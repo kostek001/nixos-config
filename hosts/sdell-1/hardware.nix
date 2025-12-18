@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   ## BOOTLOADER
@@ -14,7 +14,7 @@
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      "/var/lib/sbctl"
+      config.boot.lanzaboote.pkiBundle
       # 
       "/srv"
     ];
