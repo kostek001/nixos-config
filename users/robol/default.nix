@@ -6,6 +6,4 @@
     description = fullname;
     extraGroups = [ "networkmanager" ];
   };
-
-  home-manager.users.${username} = import ./home;
 }
