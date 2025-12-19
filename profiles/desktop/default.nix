@@ -13,7 +13,7 @@
     enable = true;
     # Use randomized MAC
     ethernet.macAddress = "stable";
-    wifi.macAddress = "random";
+    wifi.macAddress = "stable-ssid";
     wifi.scanRandMacAddress = true;
   };
   knix.privileged.groups = [ "networkmanager" ];
