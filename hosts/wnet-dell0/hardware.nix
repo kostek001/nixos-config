@@ -9,15 +9,23 @@
   environment.persistence."/nix/persist" = {
     enable = true;
     hideMounts = true;
+    # TODO: move common directories/files to standalone module
     directories = [
-      "/etc/nixos"
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
-      "/etc/NetworkManager/system-connections"
-      config.boot.lanzaboote.pkiBundle
+      "/var/lib/systemd/timers" # Persistent Timers
+      "/etc/NetworkManager/system-connections" # NetworkManager connections
+      "/var/lib/NetworkManager/" # NetworkManager state
+      config.boot.lanzaboote.pkiBundle # Secureboot keys
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+      "/var/lib/boltd" # Thunderbolt settings
+      "/var/lib/fwupd" # Firmware updates
+      "/var/lib/private/" # Maybe useless?
+      # "/var/lib/btrfs" # Maybe add?
+
+      "/etc/nixos"
     ];
     files = [
       "/etc/machine-id"
@@ -26,7 +34,6 @@
       "/etc/ssh/ssh_host_rsa_key.pub"
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
-      "/etc/shadow" # User passwords
       "/usr/gnome/monitors.xml"
     ];
   };
