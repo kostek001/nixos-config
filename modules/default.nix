@@ -9,6 +9,7 @@
     desktop/plasma.nix
     hardware/nvidia.nix
     hardware/platformio.nix
+    misc/flatpak
     misc/doas.nix
     misc/shell-utils.nix
     misc/libvirt.nix
