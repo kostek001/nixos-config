@@ -17,13 +17,20 @@
       "/var/lib/systemd/coredump"
       "/var/lib/systemd/timers" # Persistent Timers
       "/etc/NetworkManager/system-connections" # NetworkManager connections
-      "/var/lib/NetworkManager/" # NetworkManager state
+      "/var/lib/NetworkManager" # NetworkManager state
       config.boot.lanzaboote.pkiBundle # Secureboot keys
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
       "/var/lib/boltd" # Thunderbolt settings
       "/var/lib/fwupd" # Firmware updates
-      "/var/lib/private/" # Maybe useless?
+      "/var/lib/private" # Maybe useless?
       # "/var/lib/btrfs" # Maybe add?
+      "/var/lib/fprint" # Enrolled fingerprints
+      "/var/lib/upower" # Battery history graphs
+      "/var/lib/AccountsService" # User metadata
+      "/var/lib/power-profiles-daemon" # Stores power profile "balansed"/"power saver"
+      "/var/lib/flatpak"
+      "/var/lib/lastlog" # Login history
+      "/var/lib/logrotate"
 
       "/etc/nixos"
     ];
@@ -37,6 +44,9 @@
       "/usr/gnome/monitors.xml"
     ];
   };
+
+  # Change logrotate state file path for preserving with impermanence
+  services.logrotate.extraArgs = lib.mkAfter [ "--state" "/var/lib/logrotate/logrotate.status" ];
 
   # Fix Agenix decryption when using Impermanence
   services.openssh.hostKeys = let path = "/nix/persist/etc/ssh"; in [
@@ -67,4 +77,9 @@
   # Make the webcam work (needs Linux >= 6.6):
   hardware.ipu6.enable = true;
   hardware.ipu6.platform = "ipu6ep";
+
+  ## FINGERPRINT
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-broadcom;
 }
