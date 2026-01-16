@@ -47,6 +47,7 @@ in
       pwvucontrol # Better audio settings
       mission-center # Better system monitor
       # celluloid # Better video player
+      file-roller
     ];
 
     # Enable Wayland in apps
