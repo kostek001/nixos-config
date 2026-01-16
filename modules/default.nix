@@ -11,6 +11,7 @@
     hardware/platformio.nix
     misc/flatpak
     misc/doas.nix
+    misc/printing.nix
     misc/shell-utils.nix
     misc/libvirt.nix
     ./privileged.nix

@@ -21,19 +21,7 @@
     user = "robol";
   };
 
-  services.printing = {
-    enable = true;
-    browsed.enable = false;
-    drivers = with pkgs; [
-      cups-filters
-    ];
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
+  knix.misc.printing.enable = true;
 
   # Allow Minecraft port
   networking.firewall.allowedTCPPorts = [ 25565 ];

@@ -17,4 +17,6 @@
 
   services.openssh.enable = true;
   knix.boot.plymouth.enable = false;
+
+  knix.misc.printing.enable = true;
 }
