@@ -19,6 +19,8 @@ with lib;
         mpris-label # Replaces `media-controls`
         quick-settings-audio-devices-hider
         tiling-assistant
+        hot-edge
+        caffeine
       ]);
     in
     {
