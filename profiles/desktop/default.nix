@@ -6,7 +6,8 @@
   ];
 
   ## BOOT
-  knix.boot.plymouth.enable = lib.mkDefault true;
+  boot.plymouth.enable = lib.mkDefault true;
+  boot.kernelParams = lib.optionals config.boot.plymouth.enable [ "quiet" ];
 
   ## NETWORKING
   networking.networkmanager = {

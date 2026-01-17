@@ -2,7 +2,6 @@
 
 {
   imports = [
-    boot/plymouth.nix
     boot/loader/lanzaboote.nix
     # desktop/hyprland # TODO: fix hyprland module
     desktop/gnome

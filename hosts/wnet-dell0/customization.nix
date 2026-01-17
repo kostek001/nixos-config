@@ -16,7 +16,6 @@
   users.users.robol.hashedPasswordFile = "/nix/persist/var/lib/shadow/robol.hashed-password";
 
   services.openssh.enable = true;
-  knix.boot.plymouth.enable = false;
 
   knix.misc.printing.enable = true;
 }

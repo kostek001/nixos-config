@@ -32,8 +32,6 @@
   services.zerotierone.enable = true;
   environment.persistence."/persistence".directories = [ "/var/lib/zerotier-one" ];
 
-  knix.boot.plymouth.enable = false;
-
   programs.git.config = {
     safe.directory = "/etc/nixos";
   };

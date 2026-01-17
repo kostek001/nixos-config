@@ -5,7 +5,6 @@
     (import ../../users/kostek/default.nix { username = "kostek"; fullname = "Kostek"; })
   ];
 
-  knix.boot.plymouth.enable = false;
   knix.misc.libvirt.enable = true;
   knix.users.kostek.vr.enable = true;
   knix.users.kostek.pentesting.enable = true;
