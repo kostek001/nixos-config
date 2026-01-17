@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   imports = [
-    ./hid.nix
     ./steam.nix
   ];
 

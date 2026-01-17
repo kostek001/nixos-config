@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hid.nix
     ./home-manager.nix
   ];
 
