@@ -30,7 +30,7 @@ in
       Service = {
         # This is needed, otherwise no logs
         ExecStart = pkgs.writeShellScript "adb-auto-forward" ''
-          PYTHONUNBUFFERED=1 exec ${inputs.kostek001-pkgs.packages.${pkgs.stdenv.hostPlatform.system}.adb-auto-forward}/bin/adb-auto-forward.py 2833:0183,9943,9944,r9757
+          PYTHONUNBUFFERED=1 exec ${inputs.kostek001-pkgs.packages.${pkgs.stdenv.hostPlatform.system}.adb-auto-forward}/bin/adb-auto-forward.py 2833:5012,9943,9944,r9757
         '';
       };
     };
