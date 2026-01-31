@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     kostek001-pkgs = {
       url = "github:kostek001/pkgs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,10 +18,6 @@
     };
     lemonake = {
       url = "github:passivelemon/lemonake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox = {
-      url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {

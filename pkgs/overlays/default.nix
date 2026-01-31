@@ -7,10 +7,6 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      master = inputs.nixpkgs-master.legacyPackages.${prev.stdenv.hostPlatform.system};
-    })
-
-    (final: prev: {
       arrpc = prev.arrpc.overrideAttrs (oldAttrs: {
         patches = [ ../misc/arrpc/log_ids.patch ];
       });
@@ -48,8 +44,8 @@
             version = "2.7-dev";
             src = oldAttrs.src.override {
               # main
-              rev = "943ed6765dbcabfafd49e0068c6a5349adf6bd94";
-              hash = "sha256-GCG2OBxmD/2JtSHXuIymBbZY6I6wkTAt6rdpbmce0mE=";
+              rev = "f742c38723bb44f90987c799f0fbf828e5e6c876";
+              hash = "sha256-s3BMZI3FG/URWD8QzAZVdwSrx5pld4zdKoJ4lJ14DGc=";
             };
 
             buildInputs = (builtins.filter
@@ -60,6 +56,12 @@
               libdjinterop
               final.libjack2
             ];
+
+            cmakeFlags = oldAttrs.cmakeFlags ++ [ "-DQML=ON" ];
+
+            postInstall = oldAttrs.postInstall + ''
+              cp -r "$src/res/qml" "$out/share/mixxx"
+            '';
           });
     })
   ];
