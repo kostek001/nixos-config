@@ -60,7 +60,6 @@
 
     # Network
     qbittorrent
-    # planify # TODO: re add – fails to build
 
     # Communication
     signal-desktop

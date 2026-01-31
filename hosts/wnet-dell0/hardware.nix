@@ -49,9 +49,9 @@
   services.logrotate.extraArgs = lib.mkAfter [ "--state" "/var/lib/logrotate/logrotate.status" ];
 
   # Fix Agenix decryption when using Impermanence
-  services.openssh.hostKeys = let path = "/nix/persist/etc/ssh"; in [
-    { path = "${path}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
-    { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
+  services.openssh.hostKeys = let basePath = "/nix/persist/etc/ssh"; in [
+    { path = "${basePath}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
+    { path = "${basePath}/ssh_host_ed25519_key"; type = "ed25519"; }
   ];
 
   # /tmp on Tmpfs

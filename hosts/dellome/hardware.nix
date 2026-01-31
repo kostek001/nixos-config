@@ -24,7 +24,6 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
-      config.boot.lanzaboote.pkiBundle
       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
@@ -39,10 +38,13 @@
   };
 
   # Fix Agenix decryption when using Impermanence [+5 hours wasted on this]
-  services.openssh.hostKeys = let path = "/persistence/etc/ssh"; in [
-    { path = "${path}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
-    { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
+  services.openssh.hostKeys = let basePath = "/persistence/etc/ssh"; in [
+    { path = "${basePath}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
+    { path = "${basePath}/ssh_host_ed25519_key"; type = "ed25519"; }
   ];
+  age.identityPaths = map (e: e.path) (
+    lib.filter (e: e.type == "rsa" || e.type == "ed25519") config.services.openssh.hostKeys
+  );
 
   # /tmp on Tmpfs
   boot.tmp = {

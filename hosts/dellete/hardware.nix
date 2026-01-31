@@ -66,9 +66,9 @@
   };
 
   # Fix Agenix decryption when using Impermanence
-  services.openssh.hostKeys = let path = "/persist/etc/ssh"; in [
-    { path = "${path}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
-    { path = "${path}/ssh_host_ed25519_key"; type = "ed25519"; }
+  services.openssh.hostKeys = let basePath = "/persist/etc/ssh"; in [
+    { path = "${basePath}/ssh_host_rsa_key"; type = "rsa"; bits = 4096; }
+    { path = "${basePath}/ssh_host_ed25519_key"; type = "ed25519"; }
   ];
 
   ## SWAP
@@ -83,7 +83,6 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # VAAPI
-      intel-media-sdk # Quick Sync Video
     ];
   };
 
