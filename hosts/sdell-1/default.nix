@@ -8,7 +8,6 @@
     ./hardware.nix
     ./networking.nix
 
-    inputs.impermanence.nixosModules.impermanence
     inputs.disko.nixosModules.disko
     ./disk-config.nix
 

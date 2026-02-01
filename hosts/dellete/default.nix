@@ -6,7 +6,5 @@
     ./customization.nix
     ./hardware-configuration.nix
     ./hardware.nix
-
-    inputs.impermanence.nixosModules.impermanence
   ];
 }

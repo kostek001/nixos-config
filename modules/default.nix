@@ -14,5 +14,6 @@
     misc/shell-utils.nix
     misc/libvirt.nix
     ./privileged.nix
+    ./root-on-tmpfs.nix
   ];
 }

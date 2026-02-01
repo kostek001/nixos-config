@@ -35,7 +35,7 @@
                   };
                   "@persistance" = {
                     mountOptions = [ "compress=zstd" "noatime" ];
-                    mountpoint = "/persistence";
+                    mountpoint = "/nix/persist";
                   };
                   "@swap" = {
                     mountpoint = "/.swap";
