@@ -37,7 +37,7 @@
   services.logind.settings.Login.KillUserProcesses = true;
 
   knix.desktop.gnome.enable = true;
-  knix.desktop.gnome.copyMonitorsXml.enable = true;
+  knix.desktop.gnome.copyMonitors.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.noto

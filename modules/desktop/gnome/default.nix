@@ -9,18 +9,18 @@ in
     enable = mkEnableOption "Gnome";
     gdm.enable = mkEnableOption "GDM";
     remote-desktop.enable = mkEnableOption "Remote Desktop";
-    copyMonitorsXml = {
-      enable = mkEnableOption "Copy monitors.xml";
+    copyMonitors = {
+      enable = mkEnableOption "Copy monitors config";
       path = mkOption {
         type = types.path;
-        default = "/usr/gnome/monitors.xml";
+        default = "/var/lib/gnome-copy-monitors/monitors.xml";
         description = "Path for storing global monitors.xml";
       };
     };
   };
 
   imports = [
-    (import ./copy-monitors-xml.nix { inherit cfg; })
+    (import ./copy-monitors.nix { inherit cfg; })
     (import ./gdm.nix { inherit cfg; })
     (import ./remote-desktop.nix { inherit cfg; })
     (import ./settings.nix { inherit cfg; })
