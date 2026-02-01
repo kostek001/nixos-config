@@ -3,7 +3,7 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      wlx-overlay-s = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.wlx-overlay-s;
+      wayvr = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.wayvr;
     })
     (final: prev: {
       xrizer = inputs.nixpkgs-xr.packages.${prev.stdenv.hostPlatform.system}.xrizer;

@@ -10,7 +10,7 @@ in
   };
 
   imports = [
-    inputs.lemonake.homeModules.steamvr
+    inputs.lemonake.homeModules.steamvr # TODO: remove dependency
   ];
 
   config = mkIf cfg.enable {
@@ -52,19 +52,10 @@ in
 
     xdg.configFile."wivrn/config.json".text = builtins.toJSON
       {
-        application = [ "${pkgs.wlx-overlay-s}/bin/wlx-overlay-s" ];
+        application = [ "${pkgs.wayvr}/bin/wlx-overlay-s" ];
         bitrate = 150 * 1000000;
         "tcp_only" = true;
         "publish-service" = null;
-      };
-
-    xdg.configFile."wlxoverlay/wayvr.conf.d/dashboard.yaml".source = (pkgs.formats.yaml { }).generate "wlxoverlay-wayvr-dashboard.yaml"
-      {
-        dashboard = {
-          exec = "${inputs.nixpkgs-xr.packages.${pkgs.stdenv.hostPlatform.system}.wayvr-dashboard}/bin/wayvr-dashboard";
-          args = "";
-          env = [ ];
-        };
       };
   };
 }
